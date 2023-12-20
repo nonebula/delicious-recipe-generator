@@ -10,6 +10,10 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Delicious Recipe Generator</title>
   </head>
@@ -17,21 +21,21 @@
   <body>
     <header>
       <!-- navigation bar-->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="recipe-nav-bar navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="recipe-logo navbar-brand" href="#">Logo</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="recipe-home nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="recipe-trending nav-link" href="#">Trending</a>
               </li>
-              <li class="nav-item dropdown">
+              <!--<li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
                 </a>
@@ -45,10 +49,11 @@
               <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
-            </ul>
+            </ul>-->
+
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="recipe-search-btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -57,105 +62,100 @@
 <!--jumbotron-->
 
     <div class="p-5 mb-4 bg-body-tertiary myhero">
-      <div class="container-fluid py-5 myjumbo">
-        <h1 class="display-5 fw-bold">Responsive Web Design at Your Fingertips!</h1>
+      <div class="recipe-jumbotron container-fluid py-5">
+        <h1 class="display-5 fw-bold">Hungry?</h1>
         <p class="col-md-12 fs-4 tagline">
-          Search no longer. Click below to download my resume.
+          We got you sorted!
         </p>
-        <a href="./assets/downloads/cv.pdf" download class="btn btn-primary btn-lg jumboButton">Download Resume</a>
+        <a href="#" download class="recipe-jumbo-btn btn btn-primary btn-lg ">Get Recipe!</a>
       </div>
     </div>
 
     <!--dropdowns for ingredients list--> 
-<div class="card text-center">
+<section>
+  <div class="card text-center">
   <div class="card-header">
-    Featured
+    Choose your ingredients...
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Choose your ingredients</h5>
+  <div class="recipe-ingredient-card card-body">
+    <h5 class="card-title">What's in your fridge?</h5>
 
-    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      meat
+    <button type="button" class="recipe-protein btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Protein
     </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Action</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Separated link</a></li>
+    <ul class="protein-list dropdown-menu">
+      <li><a class="dropdown-item" href="#">Choose your protein</a></li>
     </ul>
      
 
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    carb
+  <button type="button" class="recipe-carb btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    Carbohydrate
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><hr class="dropdown-divider"></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
+  <ul class="carb-list dropdown-menu">
+    <li><a class="dropdown-item" href="#">Choose your Carbohydrate</a></li>
   </ul>
 
-<button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-  veg1
+<button type="button" class="recipe-veg1 btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  Vegetable 1
 </button>
-<ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="#">Action</a></li>
-  <li><hr class="dropdown-divider"></li>
-  <li><a class="dropdown-item" href="#">Separated link</a></li>
+<ul class="veg-list dropdown-menu">
+  <li><a class="dropdown-item" href="#">Choose your vegetable</a></li>
 </ul>  
 
-<button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-  veg2
+<button type="button" class="recipe-veg2 btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+  Vegetable 2
 </button>
-<ul class="dropdown-menu">
-  <li><a class="dropdown-item" href="#">Action</a></li>
-  <li><hr class="dropdown-divider"></li>
-  <li><a class="dropdown-item" href="#">Separated link</a></li>
+<ul class="veg-list dropdown-menu">
+  <li><a class="dropdown-item" href="#">Choose your vegetable</a></li>
 </ul>
   
 
     <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-    <a href="#" class="btn btn-primary">submit</a>
+    <a href="#" class="recipe-submit btn btn-primary">Feed me!</a>
   </div>
 </div>
 </div>
 </div>
 </div>
+
 
   <div class="card-footer text-body-secondary">
-    2 days ago
+  #
   </div>
 </div>
-
+</section>
 
  
     <!--cards-->
-    <div class="card-group">
+    <div class="recipe-result card-group">
       <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title">Chicken Biryani</h5>
+          <p class="card-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
       <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">Chicken Fried Rice</h5>
+          <p class="card-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
       <div class="card">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <h5 class="card-title">Chicken Noodle Stirfry</h5>
+          <p class="card-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.
+            Meaning of life? Maybe not. Meaning of the most convenient dinner ever. Absolutely.</p>
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
     </div>
     <!--previous search carousel-->
-    <div id="carouselExample" class="carousel slide">
+    <div id="carouselExample" class="recipe-history carousel slide">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="..." class="d-block w-100" alt="...">
@@ -181,11 +181,31 @@
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
         </li>
-        <li class="nav-item"><a href="#about" class="nav-link"> About Me</a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link"> Skills</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"> Projects</a></li>
-        <li class="nav-item resume"><a href="./assets/downloads/cv.pdf" download>Resume</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">My Recipes</a></li>
       </ul>
+
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <a href="tel:+447753911825">07753911825</a>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:joe.higgs@live.com">joe.higgs@live.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/joelloydhiggs/">LinkedIn</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-github"></i>
+        <a href="https://github.com/nonebula">GitHub</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-twitter"></i>
+        <a href="https://twitter.com/no_nebula_8421">Twitter</a>
+      </div>
       <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p>
     </footer>
     
