@@ -22,12 +22,11 @@
     <header>
       <!-- navigation bar-->
       <nav class="recipe-nav-bar navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+        <div class="container-fluid" id="custom-container">
           <a class="recipe-logo navbar-brand" href="#">Logo</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="recipe-home nav-link active" aria-current="page" href="#">Home</a>
@@ -35,21 +34,6 @@
               <li class="nav-item">
                 <a class="recipe-trending nav-link" href="#">Trending</a>
               </li>
-              <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>-->
 
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -70,9 +54,9 @@
         <a href="#" download class="recipe-jumbo-btn btn btn-primary btn-lg ">Get Recipe!</a>
       </div>
     </div>
-
     <!--dropdowns for ingredients list--> 
-<section>
+
+<section class="selection-section" id="selection-section">
   <div class="card text-center">
   <div class="card-header">
     Choose your ingredients...
@@ -80,38 +64,36 @@
   <div class="recipe-ingredient-card card-body">
     <h5 class="card-title">What's in your fridge?</h5>
 
-    <button type="button" class="recipe-protein btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Protein
-    </button>
-    <ul class="protein-list dropdown-menu">
-      <li><a class="dropdown-item" href="#">Choose your protein</a></li>
-    </ul>
+    <label for="protein">Protein</label>
+    <select name="protein" id="Protein-choices"> 
+        <option value="beef">Beef</option>
+        <option value="chicken">Chicken</option>
+        <option value="tofu">Tofu</option>
+    </select>
      
+    <label for="Carbohydrates">Carbohydrates</label>
+    <select name="Carbohydrates" id="Carbohydrates-choices"> 
+        <option value="rice">Rice</option>
+        <option value="pasta">Pasta</option>
+        <option value="potatoes">Potatoes</option>
+    </select>
 
-  <button type="button" class="recipe-carb btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Carbohydrate
-  </button>
-  <ul class="carb-list dropdown-menu">
-    <li><a class="dropdown-item" href="#">Choose your Carbohydrate</a></li>
-  </ul>
+    <label for="Vegetables">Vegetables</label>
+    <select name="Vegetable" id="Vegetable-choices"> 
+        <option value="Peppers">Peppers</option>
+        <option value="Peas">Peas</option>
+        <option value="Broccoli">Broccoli</option>
+    </select>
 
-<button type="button" class="recipe-veg1 btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-  Vegetable 1
-</button>
-<ul class="veg-list dropdown-menu">
-  <li><a class="dropdown-item" href="#">Choose your vegetable</a></li>
-</ul>  
-
-<button type="button" class="recipe-veg2 btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-  Vegetable 2
-</button>
-<ul class="veg-list dropdown-menu">
-  <li><a class="dropdown-item" href="#">Choose your vegetable</a></li>
-</ul>
+    <label for="Vegetables">Vegetables</label>
+    <select name="Vegetable" id="Vegetable-choices"> 
+        <option value="Peppers">Peppers</option>
+        <option value="Peas">Peas</option>
+        <option value="Broccoli">Broccoli</option>
+    </select>
   
-
     <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-    <a href="#" class="recipe-submit btn btn-primary">Feed me!</a>
+    <a href="#" class="recipe-submit btn btn-primary" id="js-fetch-recipes">Feed me!</a>
   </div>
 </div>
 </div>
@@ -120,15 +102,15 @@
 
 
   <div class="card-footer text-body-secondary">
-  #
+  
   </div>
 </div>
 </section>
 
  
     <!--cards-->
-    <div class="recipe-result card-group">
-      <div class="card">
+    <div class="recipe-result card-group" id="js-recipe-section">
+      <div class="card" id="recipe">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Chicken Biryani</h5>
@@ -136,7 +118,7 @@
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
-      <div class="card">
+      <div class="card"id="recipe">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Chicken Fried Rice</h5>
@@ -144,7 +126,7 @@
           <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
         </div>
       </div>
-      <div class="card">
+      <div class="card"id="recipe">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Chicken Noodle Stirfry</h5>
@@ -176,7 +158,7 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <!--footer-->
+
     <footer class="py-0 my-0 footer">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
@@ -186,26 +168,13 @@
         <li class="nav-item"><a href="#projects" class="nav-link">My Recipes</a></li>
       </ul>
 
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <a href="tel:+447753911825">07753911825</a>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:joe.higgs@live.com">joe.higgs@live.com</a>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-linkedin"></i>
-        <a href="https://www.linkedin.com/in/joelloydhiggs/">LinkedIn</a>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-github"></i>
-        <a href="https://github.com/nonebula">GitHub</a>
-      </div>
-      <div class="contact-item">
-        <i class="fab fa-twitter"></i>
-        <a href="https://twitter.com/no_nebula_8421">Twitter</a>
-      </div>
+      <ul class="contact-item"> 
+        <li><a href="tel:+447753911825">07753911825</a></li>
+        <li><a href="mailto:joe.higgs@live.com">joe.higgs@live.com</a> </li>
+        <li><a href="https://www.linkedin.com/in/joelloydhiggs/">LinkedIn</a> </li>
+        <li><a href="https://github.com/nonebula">GitHub</a></li>
+        <li><a href="https://twitter.com/no_nebula_8421">Twitter</a></li>
+      </ul>
       <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p>
     </footer>
     
@@ -215,6 +184,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/logic.js"></script>
   </body>
 </html>
