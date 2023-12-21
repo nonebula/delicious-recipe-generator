@@ -1,9 +1,43 @@
+:root {
+    --base-color: #fff;
+    --primary-heading-color: #00308f;
+    --primary-border-color: #00308f;
+    --name-color: #fff;
+    --tagline-color: #fff;
+    --primary-text-color: #222629;
+    --secondary-heading-color: #003399;
+    --nav-text-color: #b9d9eb;
+    --secondary-text-color: #474b4f;
+    --link-color: #31708e;
+    --link-hover-color: #8fc1e3;
+    --border-color: #29648a;
+    --primary-heading-font-size: 24px;
+    --nav-bar-font-size: 18px;
+    --secondary-heading-font-size: 24px;
+  }
+
+
 .navbar {
 
 
 }
 
-/* 
+.myhero {
+    justify-content: center;
+    background-image: url(../images/jumbotron3.jpg);
+    background-color: var(--nav-text-color) !important;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+
+}
+
 .navbar-nav {
     display: flex;
     align-content: center;
@@ -18,12 +52,25 @@
 }
 
 .recipe-jumbotron {
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+
+
+}
+
+section {
+    height:400px;
+
 }
 
 .recipe-jumbo-btn {
+
 }
 
 .recipe-ingredient-card {
+    /*height:400px;*/
+    /*display: flex;*/
 
 }
 
