@@ -91,5 +91,4 @@ fetch(url, options)
     } else {
       console.error('Nutrition or nutrition section was not found');
     }
-
 });
