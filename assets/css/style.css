@@ -1,31 +1,70 @@
-/*:root {
-    --base-color: #fff;
-    --primary-heading-color: #00308f;
-    --primary-border-color: #00308f;
-    --name-color: #fff;
-    --tagline-color: #fff;
-    --primary-text-color: #222629;
-    --secondary-heading-color: #003399;
-    --nav-text-color: #b9d9eb;
-    --secondary-text-color: #474b4f;
-    --link-color: #31708e;
-    --link-hover-color: #8fc1e3;
-    --border-color: #29648a;
-    --primary-heading-font-size: 24px;
-    --nav-bar-font-size: 18px;
-    --secondary-heading-font-size: 24px;
-  } */
+/* variables for colors */
+:root {
+  --base-color: #fff;
+  --primary-site-color: #000000;
+  --tagline-color: #fff;
+  --primary-text-color: #000000;
+  --secondary-site-color: #b8860b;
+  --button-hover-color: #ffd700;
+  --nav-text-color: #fff;
+  --secondary-text-color: #fff;
+  --choice-button-color: #000000;
+  --link-color: #b8860b;
+  --link-hover-color: #ffd700;
+  --primary-heading-font-size: 28px;
+  --nav-bar-font-size: 18px;
+  --main-body-font-size: 14px;
+  --secondary-heading-font-size: 24px;
+}
 
-  .navbar {
-    background-color:black;
-    color:white;
+/* nav bar styling */
+.navbar {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+}
 
-} 
+.container-fluid {
+  background-color: var(--primary-site-color);
+}
 
+.navbar-nav {
+  display: flex;
+  align-content: center;
+}
+
+.nav-item {
+  color: var(--nav-text-color);
+}
+
+.recipe-trending {
+  color: var(--nav-text-color);
+}
+
+.recipe-search-btn {
+  background-color: var(--link-color);
+  color: var(--base-color);
+  border-radius: 10px;
+}
+
+/* logo */
+.recipe-logo {
+  color: var(--base-color);
+}
+
+.logo {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+/* nav search bar */
+.d-flex {
+  margin-left: 500px;
+}
+
+/* jumbrotron styling */
 .myhero {
-    justify-content: center;
-    background-image: url(../images/jumbotron2.jpg);
-    background-color: var(--nav-text-color) !important;
+  justify-content: center;
+  background-image: url(../images/jumbotron2.jpg);
   height: 800px;
   display: flex;
   align-items: center;
@@ -35,159 +74,71 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
-  
-
-}
-
-.navbar-nav {
-    display: flex;
-    align-content: center;
-}
-
-.container-fluid {
-    background-color: black;
-    
-}
-
-.recipe-search-btn {
-    background-color: darkgoldenrod;
-    color:white;
-
 }
 
 .recipe-jumbotron {
-    width:300px;
-    align-items:center;
-    background-color: transparent;
-
-
+  width: 300px;
+  align-items: center;
+  background-color: transparent;
 }
 
-section {
-    height:400px;
-
+/* Jumbotron body content */
+.display-5 {
+  color: var(--primary-site-color);
+  font-size: 80px;
+  /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: left;*/
 }
 
+.tagline {
+  color: var(--primary-text-color);
+  /* text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: left; */
+  /* font-weight: bolder; */
+}
 .recipe-jumbo-btn {
-
+  background-color: var(--primary-site-color);
+  color: var(--base-color);
 }
 
-.recipe-ingredient-card {
-    /*height:400px;*/
-    /*display: flex;*/
-
+/* recipe search section */
+section {
+  height: 400px;
 }
 
-.recipe-protein {
-
-}
-
-.recipe-carb {
-
-}
-
-.recipe-veg1 {
-
-}
-
+/* choice section buttons */
+.recipe-protein,
+.recipe-carb,
+.recipe-veg1,
 .recipe-veg2 {
-    
+  background-color: var(--choice-button-color);
+  border-color: transparent;
 }
 
-.veg-list {
-}
+/* Need to add a class to above buttons and then add a hover style */
 
-.veg-list {
+/* recipe cards */
+.card {
+  padding: 50px;
+  border-color: transparent;
 }
 
 .recipe-submit {
-
-}
-
-.recipe-result {
-
-}
-
-.footer li {
-
-} 
-
-.recipe-logo {
-    color:white;
-    
-}
-.logo {
-   margin-right: 10px;
-   margin-left: 10px;
-}
-.display-5 {
-    /*background-color:white;*/
-    color:black;
-    font-size: 80px;
-    /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left;*/
-}
-
-  .tagline {
-    color:black;
-    /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left;*/
-
-  }
-  .recipe-jumbo-btn {
-    background-color:black;
-    color:white;
-  }
-  
-  .d-flex {
-    margin-left: 500px;
-
-  }
-  .recipe-protein {
-    background-color: black;
-    border-color: transparent;
-  }
-  .recipe-carb {
-    background-color: black;
-    border-color: transparent;
-    
-  }
-  .recipe-veg1 {
-    background-color: black;
-    border-color: transparent;
-  }
-  .recipe-veg2 {
-    background-color: black;
-    border-color: transparent;
-  }
- .card {
-    padding: 50px;
-    border-color: transparent;
- }
- .recipe-submit {
-    background-color: darkgoldenrod;
-    border-color: transparent;
-    color:black;
- }
- .footer {
-    background-color: black;
-    color:white
- }
-.nav-link {
-    color:white;
-}
-.text-center {
-    color:white;
-}
-.recipe-trending {
-    color: black;
-}
-
-.recipe-nav-bar {
-    background-color: ;
-    padding: 0%;
+  background-color: var(--link-color);
+  border-color: transparent;
+  color: var(--primary-text-color);
 }
 
 .card-header {
-    background-color: black;
+  background-color: var(--primary-text-color);
+}
+
+/* footer styles */
+.text-center {
+  color: var(--nav-text-color);
+}
+
+footer {
+  background-color: var(--primary-text-color);
+  color: var(--base-color);
 }
