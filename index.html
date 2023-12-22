@@ -22,11 +22,13 @@
     <header>
       <!-- navigation bar-->
       <nav class="recipe-nav-bar navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid" id="custom-container">
-          <a class="recipe-logo navbar-brand" href="#">Logo</a>
+        <div class="container-fluid">
+          <div class="logo"><img src="./assets/images/logo.png" height="50px" width="50px"></div>
+          <a class="recipe-logo navbar-brand" href="#">Delicious Recipe Generator</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="nav-list-items">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="recipe-home nav-link active" aria-current="page" href="#">Home</a>
@@ -35,7 +37,7 @@
                 <a class="recipe-trending nav-link" href="#">Trending</a>
               </li>
 
-            <form class="d-flex" role="search">
+            <form class="d-flex nav-user-form" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="recipe-search-btn btn-outline-success" type="submit">Search</button>
             </form>
@@ -166,16 +168,13 @@
         <li class="nav-item"><a href="#about" class="nav-link">Home</a></li>
         <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li>
         <li class="nav-item"><a href="#projects" class="nav-link">My Recipes</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-phone"></i>Contact</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
       </ul>
-
-      <ul class="contact-item"> 
-        <li><a href="tel:+447753911825">07753911825</a></li>
-        <li><a href="mailto:joe.higgs@live.com">joe.higgs@live.com</a> </li>
-        <li><a href="https://www.linkedin.com/in/joelloydhiggs/">LinkedIn</a> </li>
-        <li><a href="https://github.com/nonebula">GitHub</a></li>
-        <li><a href="https://twitter.com/no_nebula_8421">Twitter</a></li>
-      </ul>
-      <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p>
+    <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p> 
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
