@@ -1,4 +1,4 @@
-:root {
+/*:root {
     --base-color: #fff;
     --primary-heading-color: #00308f;
     --primary-border-color: #00308f;
@@ -14,19 +14,19 @@
     --primary-heading-font-size: 24px;
     --nav-bar-font-size: 18px;
     --secondary-heading-font-size: 24px;
-  }
+  } */
 
+  .navbar {
+    background-color:black;
+    color:white;
 
-.navbar {
-
-
-}
+} 
 
 .myhero {
     justify-content: center;
-    background-image: url(../images/jumbotron3.jpg);
+    background-image: url(../images/jumbotron2.jpg);
     background-color: var(--nav-text-color) !important;
-  height: 400px;
+  height: 800px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,6 +35,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  
 
 }
 
@@ -44,17 +45,20 @@
 }
 
 .container-fluid {
-
+    background-color: black;
+    
 }
 
 .recipe-search-btn {
+    background-color: darkgoldenrod;
+    color:white;
 
 }
 
 .recipe-jumbotron {
-    justify-content: center;
-    align-items: center;
-    background-color: white;
+    width:300px;
+    align-items:center;
+    background-color: transparent;
 
 
 }
@@ -106,4 +110,84 @@ section {
 
 .footer li {
 
-} */
+} 
+
+.recipe-logo {
+    color:white;
+    
+}
+.logo {
+   margin-right: 10px;
+   margin-left: 10px;
+}
+.display-5 {
+    /*background-color:white;*/
+    color:black;
+    font-size: 80px;
+    /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: left;*/
+}
+
+  .tagline {
+    color:black;
+    /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: left;*/
+
+  }
+  .recipe-jumbo-btn {
+    background-color:black;
+    color:white;
+  }
+  
+  .d-flex {
+    margin-left: 500px;
+
+  }
+  .recipe-protein {
+    background-color: black;
+    border-color: transparent;
+  }
+  .recipe-carb {
+    background-color: black;
+    border-color: transparent;
+    
+  }
+  .recipe-veg1 {
+    background-color: black;
+    border-color: transparent;
+  }
+  .recipe-veg2 {
+    background-color: black;
+    border-color: transparent;
+  }
+ .card {
+    padding: 50px;
+    border-color: transparent;
+ }
+ .recipe-submit {
+    background-color: darkgoldenrod;
+    border-color: transparent;
+    color:black;
+ }
+ .footer {
+    background-color: black;
+    color:white
+ }
+.nav-link {
+    color:white;
+}
+.text-center {
+    color:white;
+}
+.recipe-trending {
+    color: black;
+}
+
+.recipe-nav-bar {
+    background-color: ;
+    padding: 0%;
+}
+
+.card-header {
+    background-color: black;
+}
