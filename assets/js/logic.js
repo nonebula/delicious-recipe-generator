@@ -1,6 +1,8 @@
 var proteins = ["Beef", "Chicken", "Turkey", "Pork", "Lamb", "Salmon", "Tuna", "Shrimp", "Cod", "Halibut", "Trout", "Crab", "Lobster", "Duck", "Quail", "Venison", "Bison", "Elk", "Goose", "Rabbit", "Kangaroo", "Alligator", "Octopus", "Squid", "Pheasant", "Grouse", "Moose", "Wild Boar", "Snapper", "Sardines", "Catfish", "Haddock", "Mahi-Mahi", "Tilapia", "Perch", "Herring", "Anchovies", "Bluefish", "Carp", "Mackerel", "Eel", "Grouper", "Swordfish", "Yellowtail"];
 var vegetables = ["Lentils", "Chickpeas", "Black Beans", "Kidney Beans", "Soybeans", "Edamame", "Tofu", "Tempeh", "Seitan", "Quinoa", "Chia Seeds", "Hemp Seeds", "Flaxseeds", "Pumpkin Seeds", "Sunflower Seeds", "Almonds", "Walnuts", "Cashews", "Pistachios", "Peanuts", "Hazelnuts", "Brazil Nuts", "Spinach", "Broccoli", "Kale", "Brussels Sprouts", "Peas", "Artichokes", "Asparagus", "Cauliflower", "Mushrooms", "Spirulina", "Nutritional Yeast", "Cottage Cheese (plant-based)", "Greek Yogurt (plant-based)", "Avocado", "Sweet Potatoes", "Chard", "Collard Greens", "Cabbage", "Cucumber", "Bell Peppers", "Eggplant", "Zucchini", "Tomatoes", "Carrots"];
 var carbohydrates = ["Potatoes", "Sweet Potatoes", "Rice (brown, white)", "Quinoa", "Oats", "Barley", "Buckwheat", "Couscous", "Pasta", "Bread (whole grain, whole wheat)", "Corn", "Beans (black beans, kidney beans)", "Lentils", "Chickpeas", "Peas", "Bananas", "Apples", "Oranges", "Berries (strawberries, blueberries)", "Mangoes", "Pineapple", "Watermelon", "Grapes", "Peaches", "Plums", "Dates", "Raisins", "Figs", "Carrots", "Sweet Corn", "Butternut Squash", "Acorn Squash", "Pumpkin", "Beets", "Brussels Sprouts", "Artichokes", "Cabbage", "Broccoli", "Spinach", "Kale", "Asparagus", "Tomatoes", "Bell Peppers", "Zucchini", "Cucumbers", "Eggplant"];
+var vegetables2 = ["Lentils", "Chickpeas", "Black Beans", "Kidney Beans", "Soybeans", "Edamame", "Tofu", "Tempeh", "Seitan", "Quinoa", "Chia Seeds", "Hemp Seeds", "Flaxseeds", "Pumpkin Seeds", "Sunflower Seeds", "Almonds", "Walnuts", "Cashews", "Pistachios", "Peanuts", "Hazelnuts", "Brazil Nuts", "Spinach", "Broccoli", "Kale", "Brussels Sprouts", "Peas", "Artichokes", "Asparagus", "Cauliflower", "Mushrooms", "Spirulina", "Nutritional Yeast", "Cottage Cheese (plant-based)", "Greek Yogurt (plant-based)", "Avocado", "Sweet Potatoes", "Chard", "Collard Greens", "Cabbage", "Cucumber", "Bell Peppers", "Eggplant", "Zucchini", "Tomatoes", "Carrots"];
+
 
 function displayItems(idName, items) {
     const listELement = document.querySelector(idName)
@@ -8,10 +10,9 @@ function displayItems(idName, items) {
 
     items.forEach(element => {
         const listHTML = document.createElement("option");
-        listELement.setAttribute("value", element)
+    //    listELement.setAttribute("value", element)
         listHTML.innerHTML = element;
         listELement.appendChild(listHTML);
-
     });
 }
 
@@ -27,7 +28,9 @@ function displayItems(idName, items) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const recipeResults = document.querySelector('#js-recipe-section');
-    const fetchButton = document.querySelector('#js-fetch-recipes'); if (fetchButton && recipeResults) {
+    const fetchButton = document.querySelector('#js-fetch-recipes'); 
+    
+    if (fetchButton && recipeResults) {
         fetchButton.addEventListener('click', function () {
             const query = "chicken";
             const url = `https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=${query}`;
@@ -39,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             };
 
+            //FIXME: edit better messages for errors
             fetch(url, options)
                 .then(response => {
                     if (!response.ok) {
@@ -69,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const nutritionButton = document.querySelector('.js-fetch-nutrition');
     const nutritionResults = document.querySelector('.js-nutrition-section');
+
     if (nutritionButton && nutritionResults) {
 
         nutritionButton.addEventListener('click', function () {
@@ -118,14 +123,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     displayItems("#Protein-choices", proteins);
     displayItems("#Carbohydrates-choices", carbohydrates);
-    displayItems("#Vegetable-choices", vegetables);
-    displayItems("#Vegetable-choices", vegetables);
+    displayItems("#Vegetable1-choices", vegetables);
+    displayItems("#Vegetable2-choices", vegetables2);
 
-    const customerInput = "";
-    document.querySelectorAll("option").forEach((option) => {
-        option.addEventListener("click", () => {
-            console.log(option.innerHTML);
-            customerInput += option.innerHTML + ' ';
-        })
-    }); 
+    let customerInput = "";
+
+   
+
+    function setOptionVariable(htmlElement){
+        document.querySelectorAll(htmlElement+" >option").forEach((option) => {
+            option.addEventListener("click", () => {
+                document.querySelector(htmlElement).setAttribute('value', option.innerHTML);
+                console.log(option.innerHTML);
+                customerInput += option.innerHTML + ' ';
+            })
+        }); 
+    }
+
+    setOptionVariable("#Carbohydrates-choices");
+    setOptionVariable("#Protein-choices");
+    setOptionVariable("#Vegetable1-choices");
+    setOptionVariable("#Vegetable2-choices");
+
 });
