@@ -57,6 +57,7 @@
 }
 
 /* nav search bar */
+/* MUST USE MEDIA QUERIES TO BUILD IN ADAPTABILITY */
 .nav-user-form {
   margin-left: 500px;
 }
