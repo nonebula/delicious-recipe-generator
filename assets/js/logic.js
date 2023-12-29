@@ -342,58 +342,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Button or recipe section not found");
   }
 
-// Section for fetching nutrition data
-  const nutritionButton = document.querySelector(".js-fetch-nutrition");
-  const nutritionResults = document.querySelector(".js-nutrition-section");
-
-  if (nutritionButton && nutritionResults) {
-    nutritionButton.addEventListener("click", function () {
-      const url =
-        "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=1lb%20brisket%20with%20fries";
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "99088a17fdmsh5b87115e6ccddc4p1da664jsnac40653791f8",
-          "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
-        },
-      };
-
-      fetch(url, options)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          let nutritionHTML = "";
-          for (let index = 0; index < data.length; index++) {
-            const element = data[index];
-            nutritionHTML += `<p>Name: ${element.name}</p>
-              <div>Calories: ${element.calories}</div>
-              <div>Carbohydrates (total) ${element.carbohydrates_total_g}</div>
-              <div>Cholesterol ${element.cholesterol_mg}</div>
-              <div>Saturarted Fat: ${element.fat_saturated_g}</div>
-              <div>Fat (total): ${element.fat_total_g}</div>
-              <div>Potassium: ${element.potassium_mg}</div>
-              <div>Protein: ${element.protein_g}</div>
-              <div>Sodium: ${element.sodium_mg}</div>
-              <div>Sugar: ${element.sugar_g}</div>
-              `;
-          }
-
-          nutritionResults.innerHTML = nutritionHTML;
-        })
-        .catch((error) => {
-          console.error("There was a problem:", error);
-        });
-    });
-  } else {
-    console.error("Nutrition or nutrition section was not found");
-  }
-
 // IDs of dropdown lists
   const optionElements = [
     "#Protein-choices",
@@ -441,21 +389,55 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Save event - taken from previous homework, commented out for now
-// function saveHistory(event) {
-      // Saving user's choices to local storage
-    // }
 
-// $("#js-fetch-recipes").on("click", function (event) {
-//   event.preventDefault();
-//   var userChoices = customerInput.val();
-
-//   if (!cities.includes(textInput)) {
-//     cities.push(textInput);
-//   }
-
-//   renderButtons();
-//   displayCityInfo(textInput);
-//   futureForecast(textInput);
-//   saveHistory();
-// });
+//new js code to implement API within the search function and card group
+//this works to generate the recipes at the bottom of the page in cards
+document.addEventListener("DOMContentLoaded", function () {
+  const searchButton = document.querySelector(".recipe-search-btn");
+  if (searchButton) {
+    searchButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      const searchInput = document.querySelector("input[type=search]").value;
+      fetchRecipes(searchInput);
+    });
+  }
+  function fetchRecipes(query) {
+    const recipeResults = document.querySelector("#js-recipe-section");
+    const url = 'https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=' + query;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "afe98ac037msh3ce3820dfc89dc5p153212jsn68ab7789434e",
+        "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com",
+      },
+    };
+    fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        let recipeHTML = "";
+        // Display up to 3 recipes
+        for (let index = 0; index < Math.min(3, data.length); index++) {
+          const element = data[index];
+          console.log(data);
+          recipeHTML += `<div class="card">
+          <img src="${element.image}" class="card-img-top" alt="Recipe Image">
+          <div class="card-body">
+            <h5>${element.title}</h5>
+            <p>Ingredients: ${element.ingredients}</p>
+            <div>Instructions ${element.instructions}</div>
+            <div>Servings: ${element.servings}</div>
+          </div>
+        </div>`;
+      }
+        recipeResults.innerHTML = recipeHTML;
+      })
+      .catch((error) => {
+        console.error("There was a problem:", error);
+      });
+  }
+});
