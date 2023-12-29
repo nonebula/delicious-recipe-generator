@@ -15,37 +15,41 @@ var proteins = [
   "Crab",
   "Lobster",
   "Duck",
-  "Quail",
-  "Venison",
-  "Bison",
-  "Elk",
-  "Goose",
-  "Rabbit",
-  "Kangaroo",
-  "Alligator",
   "Octopus",
   "Squid",
-  "Pheasant",
-  "Grouse",
-  "Moose",
-  "Wild Boar",
   "Snapper",
   "Sardines",
-  "Catfish",
   "Haddock",
-  "Mahi-Mahi",
   "Tilapia",
   "Perch",
   "Herring",
   "Anchovies",
-  "Bluefish",
   "Carp",
+  "Tofu",
+  "Tempeh",
   "Mackerel",
-  "Eel",
-  "Grouper",
-  "Swordfish",
-  "Yellowtail",
 ];
+
+var carbohydrates = [
+  "",
+  "Potatoes",
+  "Sweet Potatoes",
+  "Rice",
+  "Quinoa",
+  "Oats",
+  "Barley",
+  "Buckwheat",
+  "Noodles",
+  "Spaghetti",
+  "Glass Noodles",
+  "Linguine",
+  "Couscous",
+  "Pasta",
+  "Bread",
+  "Butternut Squash",
+  "Pumpkin",
+];
+
 var vegetables1 = [
   "",
   "Lentils",
@@ -54,22 +58,7 @@ var vegetables1 = [
   "Kidney Beans",
   "Soybeans",
   "Edamame",
-  "Tofu",
-  "Tempeh",
-  "Seitan",
   "Quinoa",
-  "Chia Seeds",
-  "Hemp Seeds",
-  "Flaxseeds",
-  "Pumpkin Seeds",
-  "Sunflower Seeds",
-  "Almonds",
-  "Walnuts",
-  "Cashews",
-  "Pistachios",
-  "Peanuts",
-  "Hazelnuts",
-  "Brazil Nuts",
   "Spinach",
   "Broccoli",
   "Kale",
@@ -79,14 +68,8 @@ var vegetables1 = [
   "Asparagus",
   "Cauliflower",
   "Mushrooms",
-  "Spirulina",
-  "Nutritional Yeast",
-  "Cottage Cheese (plant-based)",
-  "Greek Yogurt (plant-based)",
   "Avocado",
   "Sweet Potatoes",
-  "Chard",
-  "Collard Greens",
   "Cabbage",
   "Cucumber",
   "Bell Peppers",
@@ -95,55 +78,7 @@ var vegetables1 = [
   "Tomatoes",
   "Carrots",
 ];
-var carbohydrates = [
-  "",
-  "Potatoes",
-  "Sweet Potatoes",
-  "Rice (brown, white)",
-  "Quinoa",
-  "Oats",
-  "Barley",
-  "Buckwheat",
-  "Couscous",
-  "Pasta",
-  "Bread (whole grain, whole wheat)",
-  "Corn",
-  "Beans (black beans, kidney beans)",
-  "Lentils",
-  "Chickpeas",
-  "Peas",
-  "Bananas",
-  "Apples",
-  "Oranges",
-  "Berries (strawberries, blueberries)",
-  "Mangoes",
-  "Pineapple",
-  "Watermelon",
-  "Grapes",
-  "Peaches",
-  "Plums",
-  "Dates",
-  "Raisins",
-  "Figs",
-  "Carrots",
-  "Sweet Corn",
-  "Butternut Squash",
-  "Acorn Squash",
-  "Pumpkin",
-  "Beets",
-  "Brussels Sprouts",
-  "Artichokes",
-  "Cabbage",
-  "Broccoli",
-  "Spinach",
-  "Kale",
-  "Asparagus",
-  "Tomatoes",
-  "Bell Peppers",
-  "Zucchini",
-  "Cucumbers",
-  "Eggplant",
-];
+
 var vegetables2 = [
   "",
   "Lentils",
@@ -152,22 +87,7 @@ var vegetables2 = [
   "Kidney Beans",
   "Soybeans",
   "Edamame",
-  "Tofu",
-  "Tempeh",
-  "Seitan",
   "Quinoa",
-  "Chia Seeds",
-  "Hemp Seeds",
-  "Flaxseeds",
-  "Pumpkin Seeds",
-  "Sunflower Seeds",
-  "Almonds",
-  "Walnuts",
-  "Cashews",
-  "Pistachios",
-  "Peanuts",
-  "Hazelnuts",
-  "Brazil Nuts",
   "Spinach",
   "Broccoli",
   "Kale",
@@ -177,14 +97,8 @@ var vegetables2 = [
   "Asparagus",
   "Cauliflower",
   "Mushrooms",
-  "Spirulina",
-  "Nutritional Yeast",
-  "Cottage Cheese (plant-based)",
-  "Greek Yogurt (plant-based)",
   "Avocado",
   "Sweet Potatoes",
-  "Chard",
-  "Collard Greens",
   "Cabbage",
   "Cucumber",
   "Bell Peppers",
@@ -227,48 +141,6 @@ function displayItems(idName, items) {
     const listHTML = document.createElement("option");
     listHTML.innerHTML = items[index];
     listElement.appendChild(listHTML);
-    //is this the most effective method? Can we instead print them to the cards provided? This would be tidier if possible.
-    /* e.g.
-    function displayItems(idName, items) {
-
-    var todayContainer = $("#today");
-
-      var todayContainerCard = $("<div>")
-        .addClass("card today-card")
-        .appendTo(todayContainer);
-      var cardImage = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-      var cardBody = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-
-      $("<h2>").text(data.name).appendTo(cardBody); //today's date needs to be added here
-      $("<h5>")
-        .text(dayjs(data.dt_txt).format("dddd D MMMM YYYY"))
-        .addClass("date")
-        .appendTo(cardBody);
-      var iconURL =
-        "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
-      $("<img>")
-        .attr("src", iconURL)
-        .addClass("today-card-image")
-        .appendTo(cardImage);
-      $("<p>")
-        .text("Today's weather is " + data.weather[0].description + "!")
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Temp: " + data.main.temp.toFixed(2) + "°C")
-        .appendTo(cardBody);
-      $("<p>")
-        .text(
-          "Wind: " + data.wind.speed + "m/s"
-        )
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Humidity: " + data.main.humidity + "%")
-        .appendTo(cardBody);
-    */
   }
 
   // items.forEach(element => {
@@ -279,19 +151,9 @@ function displayItems(idName, items) {
   // });
 }
 
-// document.addEventListener('click', function () {
-// });
-
-// function addListItem(items) {
-//     const listHTML = '';
-//     items.forEach(item => {
-//         listHTML += '<li>${item}</li>';
-//     });
-// }
-
 // Event listener, display recipe results, fetch recipes
 document.addEventListener("DOMContentLoaded", function () {
-  const recipeResults = document.querySelector("#js-recipe-section");
+  const recipeResults = document.querySelector("#js-search-results");
   const fetchButton = document.querySelector("#js-fetch-recipes");
 
   if (fetchButton && recipeResults) {
@@ -332,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <div> Servings: ${element.servings}</div>
               `;
           }
-          recipeResults.innerHTML = recipeHTML;
+          recipeResults.textContent = recipeHTML;
         })
         .catch((error) => {
           console.error("There was a problem:", error);
@@ -388,6 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 });
+
 
 
 //new js code to implement API within the search function and card group

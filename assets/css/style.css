@@ -17,53 +17,68 @@
   --secondary-heading-font-size: 24px;
 }
 
-/* nav bar styling */
-.navbar {
-  background-color: var(--primary-site-color);
-  color: var(--secondary-text-color);
+body {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.container-fluid {
+/* Nav bar styling */
+.navbar {
+  font-size: var(--nav-bar-font-size);
+}
+
+.nav-container {
   background-color: var(--primary-site-color);
+  height: 60px;
 }
 
 .navbar-nav {
   display: flex;
-  align-content: center;
 }
 
-.nav-item {
-  color: var(--nav-text-color);
+.navbar-brand {
+  color: var(--base-color);
 }
 
-.recipe-trending {
-  color: var(--nav-text-color);
+.navbar-brand:hover {
+  color: var(--button-hover-color);
 }
 
+/* Nav list items */
+.nav-list-items {
+  display: flex;
+  padding: 0;
+  justify-content: space-evenly;
+}
+
+.nav-list-items ul {
+  list-style: none;
+  justify-content: space-between;
+}
+
+/* Recipe navigation links */
+.recipe-nav-bar a {
+  color: var(--base-color);
+  text-decoration: none;
+}
+
+.recipe-nav-bar a:hover {
+  color: var(--button-hover-color);
+}
+
+/* Nav bar search button */
 .recipe-search-btn {
   background-color: var(--link-color);
   color: var(--base-color);
+  border-color: var(--link-color);
   border-radius: 10px;
 }
 
-/* logo */
-.recipe-logo {
-  color: var(--base-color);
-}
-
-.logo {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-/* nav search bar */
-/* MUST USE MEDIA QUERIES TO BUILD IN ADAPTABILITY */
-.nav-user-form {
-  margin-left: 500px;
+.recipe-search-btn:hover {
+  background-color: var(--button-hover-color);
 }
 
 /* jumbrotron styling */
-.myhero {
+.landing-section, .myhero {
   justify-content: center;
   background-image: url(../images/jumbotron2.jpg);
   height: 800px;
@@ -87,36 +102,80 @@
 .display-5 {
   color: var(--primary-site-color);
   font-size: 80px;
-  /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left;*/
 }
 
 .tagline {
   color: var(--primary-text-color);
-  /* text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left; */
-  /* font-weight: bolder; */
 }
 .recipe-jumbo-btn {
   background-color: var(--primary-site-color);
   color: var(--base-color);
+  border: solid black;
+}
+
+.recipe-jumbo-btn:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-text-color);
+  border: solid black;
 }
 
 /* recipe search section */
 section {
-  height: 400px;
+  height: 500px;
+}
+
+.choice-header {
+  font-size: 72px;
+  font-weight: bold;
+  background-color: var(--primary-text-color);
+  color: var(--base-color);
+  margin-top: 50px;
+}
+
+.selection-section {
+  height: 900px;
+}
+
+.card-title {
+  color: var(--primary-text-color);
+  margin-top: 15px;
+  font-size: 36px;
 }
 
 /* choice section buttons */
-.recipe-protein,
-.recipe-carb,
-.recipe-veg1,
-.recipe-veg2 {
-  background-color: var(--choice-button-color);
+.recipe-ingredient-card select {
+  display: block;
+  border-radius: 10px;
+  background-color: lightgrey;
+  height: 50px;
+  width: 500px;
+  text-align: center;
+  color: var(--primary-text-color);
+  border-color: transparent;
+  margin: 0 auto;
+  line-height: 50px;
   border-color: transparent;
 }
 
+.recipe-ingredient-card label {
+  font-size: 20px;
+  padding: 10px;
+  font-style: italic;
+}
+
 /* Need to add a class to above buttons and then add a hover style */
+
+/* Modal formatting */
+.recipe-modal {
+  background-color: var(--choice-button-color);
+  border-color: var(--link-color);
+}
+
+.recipe-modal:hover{
+  background-color: var(--link-hover-color);
+  border-color: var(--choice-button-color);
+  color: var(--primary-text-color);
+}
 
 /* recipe cards */
 .card {
@@ -125,21 +184,50 @@ section {
 }
 
 .recipe-submit {
+  display: inline-block;
   background-color: var(--link-color);
   border-color: transparent;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 36px;
   color: var(--primary-text-color);
 }
 
-.card-header {
-  background-color: var(--primary-text-color);
+.recipe-submit:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-text-color);
+  border-color: var(--choice-button-color);
+}
+
+.recipe-image {
+  display: flex;
+}
+
+.recipe-text {
+  height: 250px;
+  font-size: 16px;
+  line-height: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-footer {
+  font-size: 16px;
 }
 
 /* footer styles */
-.text-center {
-  color: var(--nav-text-color);
-}
-
 footer {
   background-color: var(--primary-text-color);
   color: var(--base-color);
+  font-size: 20px;
+}
+
+.nav li a,
+.nav li a:visited {
+  color: var(--base-color);
+}
+
+.nav li a:active,
+.nav li a:hover {
+  color: var(--button-hover-color);
 }
