@@ -31,7 +31,13 @@
           <div class="nav-list-items">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="recipe-home nav-link active" aria-current="page" href="#">Home</a>
+                <a class="recipe-trending nav-link" href="#landing-section">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="recipe-trending nav-link" href="#">Get Recipes</a>
+              </li>
+              <li class="nav-item">
+                <a class="recipe-trending nav-link" href="#">My Recipes</a>
               </li>
               <li class="nav-item">
                 <a class="recipe-trending nav-link" href="#">Trending</a>
@@ -46,21 +52,22 @@
       </nav>
 </header> 
 <!--jumbotron-->
-
+<section class="landing-section" id="landing-section">
     <div class="p-5 mb-4 bg-body-tertiary myhero">
       <div class="recipe-jumbotron container-fluid py-5">
         <h1 class="display-5 fw-bold">Hungry?</h1>
         <p class="col-md-12 fs-4 tagline">
           We got you sorted!
         </p>
-        <a href="#" download class="recipe-jumbo-btn btn btn-primary btn-lg ">Get Recipe!</a>
+        <a href="#selection-section" id="recipeLink" class="recipe-jumbo-btn btn btn-primary btn-lg">Get Recipe!</a>
       </div>
     </div>
+</section>
     <!--dropdowns for ingredients list--> 
 
 <section class="selection-section" id="selection-section">
   <div class="card text-center">
-  <div class="card-header">
+  <div class="choice-header card-header">
     Choose your ingredients...
   </div>
   <div class="recipe-ingredient-card card-body">
@@ -111,30 +118,31 @@
 
  
     <!--cards-->
+    
     <div class="recipe-result card-group" id="js-recipe-section">
       <div class="card">
-        <img src="../delicious-recipe-generator/assets/images/chic biryani.jpg" class="card-img-top" alt="...">
+        <img src="../assets/images/chic biryani.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Biryani">
         <div class="card-body">
           <h5 class="card-title">Chicken Biryani</h5>
-          <p class="card-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <p class="card-text recipe-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
         </div>
       </div>
       <div class="card" id="recipe">
-        <img src="../delicious-recipe-generator/assets/images/chic fried rice.jpg" class="card-img-top" alt="...">
+        <img src="../assets/images/chic fried rice.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Fried Rice">
         <div class="card-body">
           <h5 class="card-title">Chicken Fried Rice</h5>
-          <p class="card-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <p class="card-text recipe-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
         </div>
       </div>
       <div class="card" id="recipe">
-        <img src="../delicious-recipe-generator/assets/images/chic noodle stirfry.jpg" class="card-img-top" alt="...">
+        <img src="../assets/images/chic noodle stirfry.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Noodle Stir Fry">
         <div class="card-body">
           <h5 class="card-title">Chicken Noodle Stirfry</h5>
-          <p class="card-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.
+          <p class="card-text recipe-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.
             Meaning of life? Maybe not. Meaning of the most convenient dinner ever. Absolutely.</p>
-          <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
         </div>
       </div>
     </div>
@@ -165,14 +173,14 @@
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
         </li>
-        <li class="nav-item"><a href="#about" class="nav-link">Home</a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link">My Recipes</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-phone"></i>Contact</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
+        <li class="nav-item"><a href="#landing-section" class="nav-link">Home</a></li>
+        <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
+        <li class="nav-item"><a href="./results.html" class="nav-link">My Recipes</a></li>
+        <li class="nav-item"><a href="tel:+1234567890" class="nav-link"><i class="fas fa-phone"></i>Contact</a></li>
+        <li class="nav-item"><a href="mailto:contactus@deliciousrecipes.com" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
+        <li class="nav-item"><a href="https://www.facebook.com" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
+        <li class="nav-item"><a href="https://www.instagram.com" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
+        <li class="nav-item"><a href="https://www.twitter.com" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
       </ul>
     <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p> 
     </footer>
