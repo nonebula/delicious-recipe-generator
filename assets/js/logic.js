@@ -251,21 +251,56 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Save event 
-// function saveHistory(event) {
-//       // Saving user's choices to local storage
-//     }
 
-// $("#js-fetch-recipes").on("click", function (event) {
-//   event.preventDefault();
-//   var userChoices = customerInput.val();
 
-//   if (!cities.includes(textInput)) {
-//     cities.push(textInput);
-//   }
-
-//   renderButtons();
-//   displayCityInfo(textInput);
-//   futureForecast(textInput);
-//   saveHistory();
-// });
+//new js code to implement API within the search function and card group
+//this works to generate the recipes at the bottom of the page in cards
+document.addEventListener("DOMContentLoaded", function () {
+  const searchButton = document.querySelector(".recipe-search-btn");
+  if (searchButton) {
+    searchButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      const searchInput = document.querySelector("input[type=search]").value;
+      fetchRecipes(searchInput);
+    });
+  }
+  function fetchRecipes(query) {
+    const recipeResults = document.querySelector("#js-recipe-section");
+    const url = 'https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=' + query;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "afe98ac037msh3ce3820dfc89dc5p153212jsn68ab7789434e",
+        "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com",
+      },
+    };
+    fetch(url, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        let recipeHTML = "";
+        // Display up to 3 recipes
+        for (let index = 0; index < Math.min(3, data.length); index++) {
+          const element = data[index];
+          console.log(data);
+          recipeHTML += `<div class="card">
+          <img src="${element.image}" class="card-img-top" alt="Recipe Image">
+          <div class="card-body">
+            <h5>${element.title}</h5>
+            <p>Ingredients: ${element.ingredients}</p>
+            <div>Instructions ${element.instructions}</div>
+            <div>Servings: ${element.servings}</div>
+          </div>
+        </div>`;
+      }
+        recipeResults.innerHTML = recipeHTML;
+      })
+      .catch((error) => {
+        console.error("There was a problem:", error);
+      });
+  }
+});
