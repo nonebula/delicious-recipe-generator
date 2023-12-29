@@ -206,7 +206,7 @@ function displayItems(idName, items) {
 
 // Event listener, display recipe results, fetch recipes
 document.addEventListener("DOMContentLoaded", function () {
-  const recipeResults = document.querySelector("#js-recipe-section");
+  const recipeResults = document.querySelector("#js-search-results");
   const fetchButton = document.querySelector("#js-fetch-recipes");
 
   if (fetchButton && recipeResults) {
