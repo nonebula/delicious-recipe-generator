@@ -89,8 +89,30 @@
     <select name="Vegetable" id="Vegetable2-choices"> 
     </select>
   
-    <!--<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-    <a href="#" class="recipe-submit btn btn-primary" id="js-fetch-recipes">Feed me!</a>
+    <!-- Button trigger modal -->
+    <button type="button" class="recipe-submit btn btn-primary" id="js-save-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Save Search</button>
+<!-- Save Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Search Saved!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Your search has been saved. Click 'See My Recipes' to load your results or 'Close' to return to the homepage. Happy cooking!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="results.html">
+          <button type="button" class="btn btn-primary">See My Recipes</button>
+          </a>
+      </div>
+    </div>
+  </div>
+</div>
+
   </div>
 </div>
 </div>
