@@ -15,7 +15,6 @@ var proteins = [
   "Crab",
   "Lobster",
   "Duck",
-  "Venison",
   "Octopus",
   "Squid",
   "Snapper",
@@ -142,48 +141,6 @@ function displayItems(idName, items) {
     const listHTML = document.createElement("option");
     listHTML.innerHTML = items[index];
     listElement.appendChild(listHTML);
-    //is this the most effective method? Can we instead print them to the cards provided? This would be tidier if possible.
-    /* e.g.
-    function displayItems(idName, items) {
-
-    var todayContainer = $("#today");
-
-      var todayContainerCard = $("<div>")
-        .addClass("card today-card")
-        .appendTo(todayContainer);
-      var cardImage = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-      var cardBody = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-
-      $("<h2>").text(data.name).appendTo(cardBody); //today's date needs to be added here
-      $("<h5>")
-        .text(dayjs(data.dt_txt).format("dddd D MMMM YYYY"))
-        .addClass("date")
-        .appendTo(cardBody);
-      var iconURL =
-        "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
-      $("<img>")
-        .attr("src", iconURL)
-        .addClass("today-card-image")
-        .appendTo(cardImage);
-      $("<p>")
-        .text("Today's weather is " + data.weather[0].description + "!")
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Temp: " + data.main.temp.toFixed(2) + "°C")
-        .appendTo(cardBody);
-      $("<p>")
-        .text(
-          "Wind: " + data.wind.speed + "m/s"
-        )
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Humidity: " + data.main.humidity + "%")
-        .appendTo(cardBody);
-    */
   }
 
   // items.forEach(element => {
@@ -193,16 +150,6 @@ function displayItems(idName, items) {
   //     listElement.appendChild(listHTML);
   // });
 }
-
-// document.addEventListener('click', function () {
-// });
-
-// function addListItem(items) {
-//     const listHTML = '';
-//     items.forEach(item => {
-//         listHTML += '<li>${item}</li>';
-//     });
-// }
 
 // Event listener, display recipe results, fetch recipes
 document.addEventListener("DOMContentLoaded", function () {
@@ -247,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <div> Servings: ${element.servings}</div>
               `;
           }
-          recipeResults.innerHTML = recipeHTML;
+          recipeResults.textContent = recipeHTML;
         })
         .catch((error) => {
           console.error("There was a problem:", error);
@@ -255,58 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   } else {
     console.error("Button or recipe section not found");
-  }
-
-// Section for fetching nutrition data
-  const nutritionButton = document.querySelector(".js-fetch-nutrition");
-  const nutritionResults = document.querySelector(".js-nutrition-section");
-
-  if (nutritionButton && nutritionResults) {
-    nutritionButton.addEventListener("click", function () {
-      const url =
-        "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=1lb%20brisket%20with%20fries";
-      const options = {
-        method: "GET",
-        headers: {
-          "X-RapidAPI-Key":
-            "99088a17fdmsh5b87115e6ccddc4p1da664jsnac40653791f8",
-          "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
-        },
-      };
-
-      fetch(url, options)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          let nutritionHTML = "";
-          for (let index = 0; index < data.length; index++) {
-            const element = data[index];
-            nutritionHTML += `<p>Name: ${element.name}</p>
-              <div>Calories: ${element.calories}</div>
-              <div>Carbohydrates (total) ${element.carbohydrates_total_g}</div>
-              <div>Cholesterol ${element.cholesterol_mg}</div>
-              <div>Saturarted Fat: ${element.fat_saturated_g}</div>
-              <div>Fat (total): ${element.fat_total_g}</div>
-              <div>Potassium: ${element.potassium_mg}</div>
-              <div>Protein: ${element.protein_g}</div>
-              <div>Sodium: ${element.sodium_mg}</div>
-              <div>Sugar: ${element.sugar_g}</div>
-              `;
-          }
-
-          nutritionResults.innerHTML = nutritionHTML;
-        })
-        .catch((error) => {
-          console.error("There was a problem:", error);
-        });
-    });
-  } else {
-    console.error("Nutrition or nutrition section was not found");
   }
 
 // IDs of dropdown lists
@@ -356,10 +251,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Save event - taken from previous homework, commented out for now
+// Save event 
 // function saveHistory(event) {
-      // Saving user's choices to local storage
-    // }
+//       // Saving user's choices to local storage
+//     }
 
 // $("#js-fetch-recipes").on("click", function (event) {
 //   event.preventDefault();
