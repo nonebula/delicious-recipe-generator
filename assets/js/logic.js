@@ -1,3 +1,4 @@
+// Arrays containing food choices for different categories
 var proteins = [
   "",
   "Beef",
@@ -192,28 +193,89 @@ var vegetables2 = [
   "Tomatoes",
   "Carrots",
 ];
+
+// local storage check
+/* $(document).ready(function () {
+  var searchHistory = JSON.parse(localStorage.getItem("userChoices")) || [];
+
+  for (let index = 0; index < searchHistory.length; index++) {
+    customerInput.push(searchHistory[index]);
+  }
+  // renderButtons();
+
+  if (searchHistory.length > 0) {
+    var lastSearchedRecipe = searchHistory[searchHistory.length - 1];
+    previousRecipes(lastSearchedRecipe);
+  }
+}); */
+
+// Variable to store customer input
 let customerInput = '';
 
+// Sorting arrays alphabetically
 proteins.sort();
 carbohydrates.sort();
 vegetables1.sort();
 vegetables2.sort();
 
+// Function to display items in a dropdown list
 function displayItems(idName, items) {
-  const listELement = document.querySelector(idName);
-  console.log(listELement);
+  const listElement = document.querySelector(idName);
+  console.log(listElement);
 
   for (let index = 0; index < items.length; index++) {
     const listHTML = document.createElement("option");
     listHTML.innerHTML = items[index];
-    listELement.appendChild(listHTML);
+    listElement.appendChild(listHTML);
+    //is this the most effective method? Can we instead print them to the cards provided? This would be tidier if possible.
+    /* e.g.
+    function displayItems(idName, items) {
+
+    var todayContainer = $("#today");
+
+      var todayContainerCard = $("<div>")
+        .addClass("card today-card")
+        .appendTo(todayContainer);
+      var cardImage = $("<div>")
+        .addClass("card-body")
+        .appendTo(todayContainerCard);
+      var cardBody = $("<div>")
+        .addClass("card-body")
+        .appendTo(todayContainerCard);
+
+      $("<h2>").text(data.name).appendTo(cardBody); //today's date needs to be added here
+      $("<h5>")
+        .text(dayjs(data.dt_txt).format("dddd D MMMM YYYY"))
+        .addClass("date")
+        .appendTo(cardBody);
+      var iconURL =
+        "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+      $("<img>")
+        .attr("src", iconURL)
+        .addClass("today-card-image")
+        .appendTo(cardImage);
+      $("<p>")
+        .text("Today's weather is " + data.weather[0].description + "!")
+        .appendTo(cardBody);
+      $("<p>")
+        .text("Temp: " + data.main.temp.toFixed(2) + "°C")
+        .appendTo(cardBody);
+      $("<p>")
+        .text(
+          "Wind: " + data.wind.speed + "m/s"
+        )
+        .appendTo(cardBody);
+      $("<p>")
+        .text("Humidity: " + data.main.humidity + "%")
+        .appendTo(cardBody);
+    */
   }
 
   // items.forEach(element => {
   //     const listHTML = document.createElement("option");
-  // //    listELement.setAttribute("value", element)
+  // //    listElement.setAttribute("value", element)
   //     listHTML.innerHTML = element;
-  //     listELement.appendChild(listHTML);
+  //     listElement.appendChild(listHTML);
   // });
 }
 
@@ -227,6 +289,7 @@ function displayItems(idName, items) {
 //     });
 // }
 
+// Event listener, display recipe results, fetch recipes
 document.addEventListener("DOMContentLoaded", function () {
   const recipeResults = document.querySelector("#js-recipe-section");
   const fetchButton = document.querySelector("#js-fetch-recipes");
@@ -279,6 +342,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Button or recipe section not found");
   }
 
+// Section for fetching nutrition data
   const nutritionButton = document.querySelector(".js-fetch-nutrition");
   const nutritionResults = document.querySelector(".js-nutrition-section");
 
@@ -330,6 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("Nutrition or nutrition section was not found");
   }
 
+// IDs of dropdown lists
   const optionElements = [
     "#Protein-choices",
     "#Carbohydrates-choices",
@@ -337,7 +402,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "#Vegetable2-choices",
   ];
 
-  //adding the oprions for each food group
+  //adding the options for each food group
   displayItems("#Protein-choices", proteins);
   displayItems("#Carbohydrates-choices", carbohydrates);
   displayItems("#Vegetable1-choices", vegetables1);
@@ -370,6 +435,27 @@ document.addEventListener("DOMContentLoaded", function () {
         if(optionValue){
             customerInput += optionValue + '&';
         }
-   });
+        //Save to local storage
+        localStorage.setItem('userChoices', customerInput);
+      });
   }
 });
+
+// Save event - taken from previous homework, commented out for now
+// function saveHistory(event) {
+      // Saving user's choices to local storage
+    // }
+
+// $("#js-fetch-recipes").on("click", function (event) {
+//   event.preventDefault();
+//   var userChoices = customerInput.val();
+
+//   if (!cities.includes(textInput)) {
+//     cities.push(textInput);
+//   }
+
+//   renderButtons();
+//   displayCityInfo(textInput);
+//   futureForecast(textInput);
+//   saveHistory();
+// });
