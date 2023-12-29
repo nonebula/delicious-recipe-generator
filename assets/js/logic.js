@@ -15,7 +15,6 @@ var proteins = [
   "Crab",
   "Lobster",
   "Duck",
-  "Venison",
   "Octopus",
   "Squid",
   "Snapper",
@@ -270,47 +269,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //   futureForecast(textInput);
 //   saveHistory();
 // });
-
-
-//method for printing to results page
-    /* e.g.
-    function displayItems(idName, items) {
-
-    var todayContainer = $("#today");
-
-      var todayContainerCard = $("<div>")
-        .addClass("card today-card")
-        .appendTo(todayContainer);
-      var cardImage = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-      var cardBody = $("<div>")
-        .addClass("card-body")
-        .appendTo(todayContainerCard);
-
-      $("<h2>").text(data.name).appendTo(cardBody); //today's date needs to be added here
-      $("<h5>")
-        .text(dayjs(data.dt_txt).format("dddd D MMMM YYYY"))
-        .addClass("date")
-        .appendTo(cardBody);
-      var iconURL =
-        "http://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
-      $("<img>")
-        .attr("src", iconURL)
-        .addClass("today-card-image")
-        .appendTo(cardImage);
-      $("<p>")
-        .text("Today's weather is " + data.weather[0].description + "!")
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Temp: " + data.main.temp.toFixed(2) + "°C")
-        .appendTo(cardBody);
-      $("<p>")
-        .text(
-          "Wind: " + data.wind.speed + "m/s"
-        )
-        .appendTo(cardBody);
-      $("<p>")
-        .text("Humidity: " + data.main.humidity + "%")
-        .appendTo(cardBody);
-    */
