@@ -21,31 +21,30 @@
   <body>
     <header>
       <!-- navigation bar-->
-      <nav class="recipe-nav-bar navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <div class="logo"><img src="./assets/images/logo.png" height="50px" width="50px"></div>
-          <a class="recipe-logo navbar-brand" href="#">Delicious Recipe Generator</a>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid nav-container">
+          <div class="logo">
+            <img src="./assets/images/logo.png" height="50px" width="50px" alt="Logo">
+          </div>
+          <a class="recipe-brand navbar-brand" href="#">Delicious Recipe Generator</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="nav-list-items">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="recipe-trending nav-link" href="#landing-section">Home</a>
+          <div class="collapse navbar-collapse nav-list-items" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="#landing-section">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="recipe-trending nav-link" href="#">Get Recipes</a>
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="#selection-section">Get Recipes</a>
               </li>
-              <li class="nav-item">
-                <a class="recipe-trending nav-link" href="#">My Recipes</a>
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="results.html">My Recipes</a>
               </li>
-              <li class="nav-item">
-                <a class="recipe-trending nav-link" href="#">Trending</a>
-              </li>
-
+            </ul>
             <form class="d-flex nav-user-form" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="recipe-search-btn btn-outline-success" type="submit">Search</button>
+              <button class="recipe-search-btn btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -90,7 +89,7 @@
     </select>
   
     <!-- Button trigger modal -->
-    <button type="button" class="recipe-submit btn btn-primary" id="js-save-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-primary recipe-submit" id="js-save-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Save Search</button>
 <!-- Save Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -106,7 +105,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <a href="results.html">
-          <button type="button" class="btn btn-primary">See My Recipes</button>
+          <button type="button" class="btn btn-primary recipe-modal">See My Recipes</button>
           </a>
       </div>
     </div>
@@ -136,7 +135,7 @@
         <div class="card-body">
           <h5 class="card-title">Chicken Biryani</h5>
           <p class="card-text recipe-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
         </div>
       </div>
       <div class="card" id="recipe">
@@ -145,7 +144,7 @@
         <div class="card-body">
           <h5 class="card-title">Chicken Fried Rice</h5>
           <p class="card-text recipe-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
         </div>
       </div>
       <div class="card" id="recipe">
@@ -153,9 +152,8 @@
         <img src="../assets/images/chic noodle stirfry.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Noodle Stir Fry">
         <div class="card-body">
           <h5 class="card-title">Chicken Noodle Stirfry</h5>
-          <p class="card-text recipe-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.
-            Meaning of life? Maybe not. Meaning of the most convenient dinner ever. Absolutely.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer">Last updated 3 mins ago</small></p>
+          <p class="card-text recipe-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.</p>
+          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
         </div>
       </div>
     </div>

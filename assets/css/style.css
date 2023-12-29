@@ -18,53 +18,63 @@
 }
 
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/* nav bar styling */
+/* Nav bar styling */
 .navbar {
+  font-size: var(--nav-bar-font-size);
+}
+
+.nav-container {
   background-color: var(--primary-site-color);
-  color: var(--secondary-text-color);
-  font-size: 20px;
+  height: 60px;
+}
+
+.navbar-nav {
+  display: flex;
+}
+
+.navbar-brand {
+  color: var(--base-color);
+}
+
+.navbar-brand:hover {
+  color: var(--button-hover-color);
+}
+
+/* Nav list items */
+.nav-list-items {
+  display: flex;
+  padding: 0;
   justify-content: space-evenly;
 }
 
-.container-fluid {
-  background-color: var(--primary-site-color);
+.nav-list-items ul {
+  list-style: none;
+  justify-content: space-between;
 }
 
+/* Recipe navigation links */
 .recipe-nav-bar a {
   color: var(--base-color);
+  text-decoration: none;
 }
 
 .recipe-nav-bar a:hover {
   color: var(--button-hover-color);
 }
 
+/* Nav bar search button */
 .recipe-search-btn {
   background-color: var(--link-color);
   color: var(--base-color);
+  border-color: var(--link-color);
   border-radius: 10px;
 }
 
 .recipe-search-btn:hover {
   background-color: var(--button-hover-color);
-}
-
-/* logo */
-.recipe-logo {
-  color: var(--base-color);
-}
-
-.logo {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-/* nav search bar */
-/* MUST USE MEDIA QUERIES TO BUILD IN ADAPTABILITY */
-.nav-user-form {
-  margin-left: 500px;
 }
 
 /* jumbrotron styling */
@@ -92,15 +102,10 @@ body {
 .display-5 {
   color: var(--primary-site-color);
   font-size: 80px;
-  /*text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left;*/
 }
 
 .tagline {
   color: var(--primary-text-color);
-  /* text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    text-align: left; */
-  /* font-weight: bolder; */
 }
 .recipe-jumbo-btn {
   background-color: var(--primary-site-color);
@@ -116,7 +121,7 @@ body {
 
 /* recipe search section */
 section {
-  height: 400px;
+  height: 500px;
 }
 
 .choice-header {
@@ -128,7 +133,7 @@ section {
 }
 
 .selection-section {
-  height: 800px;
+  height: 900px;
 }
 
 .card-title {
@@ -138,9 +143,8 @@ section {
 }
 
 /* choice section buttons */
-#Protein-choices, #Carbohydrates-choices, #Vegetable-choices {
+.recipe-ingredient-card select {
   display: block;
-  font-size: 28px;
   border-radius: 10px;
   background-color: lightgrey;
   height: 50px;
@@ -153,7 +157,25 @@ section {
   border-color: transparent;
 }
 
+.recipe-ingredient-card label {
+  font-size: 20px;
+  padding: 10px;
+  font-style: italic;
+}
+
 /* Need to add a class to above buttons and then add a hover style */
+
+/* Modal formatting */
+.recipe-modal {
+  background-color: var(--choice-button-color);
+  border-color: var(--link-color);
+}
+
+.recipe-modal:hover{
+  background-color: var(--link-hover-color);
+  border-color: var(--choice-button-color);
+  color: var(--primary-text-color);
+}
 
 /* recipe cards */
 .card {
@@ -162,7 +184,7 @@ section {
 }
 
 .recipe-submit {
-  display: block;
+  display: inline-block;
   background-color: var(--link-color);
   border-color: transparent;
   margin-top: 50px;
@@ -178,7 +200,7 @@ section {
 }
 
 .recipe-image {
-height: 300px;
+  display: flex;
 }
 
 .recipe-text {
