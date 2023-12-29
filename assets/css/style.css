@@ -17,33 +17,38 @@
   --secondary-heading-font-size: 24px;
 }
 
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 /* nav bar styling */
 .navbar {
   background-color: var(--primary-site-color);
   color: var(--secondary-text-color);
+  font-size: 20px;
+  justify-content: space-evenly;
 }
 
 .container-fluid {
   background-color: var(--primary-site-color);
 }
 
-.navbar-nav {
-  display: flex;
-  align-content: center;
+.recipe-nav-bar a {
+  color: var(--base-color);
 }
 
-.nav-item {
-  color: var(--nav-text-color);
-}
-
-.recipe-trending {
-  color: var(--nav-text-color);
+.recipe-nav-bar a:hover {
+  color: var(--button-hover-color);
 }
 
 .recipe-search-btn {
   background-color: var(--link-color);
   color: var(--base-color);
   border-radius: 10px;
+}
+
+.recipe-search-btn:hover {
+  background-color: var(--button-hover-color);
 }
 
 /* logo */
@@ -63,7 +68,7 @@
 }
 
 /* jumbrotron styling */
-.myhero {
+.landing-section, .myhero {
   justify-content: center;
   background-image: url(../images/jumbotron2.jpg);
   height: 800px;
@@ -100,6 +105,13 @@
 .recipe-jumbo-btn {
   background-color: var(--primary-site-color);
   color: var(--base-color);
+  border: solid black;
+}
+
+.recipe-jumbo-btn:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-text-color);
+  border: solid black;
 }
 
 /* recipe search section */
@@ -107,12 +119,37 @@ section {
   height: 400px;
 }
 
+.choice-header {
+  font-size: 72px;
+  font-weight: bold;
+  background-color: var(--primary-text-color);
+  color: var(--base-color);
+  margin-top: 50px;
+}
+
+.selection-section {
+  height: 800px;
+}
+
+.card-title {
+  color: var(--primary-text-color);
+  margin-top: 15px;
+  font-size: 36px;
+}
+
 /* choice section buttons */
-.recipe-protein,
-.recipe-carb,
-.recipe-veg1,
-.recipe-veg2 {
-  background-color: var(--choice-button-color);
+#Protein-choices, #Carbohydrates-choices, #Vegetable-choices {
+  display: block;
+  font-size: 28px;
+  border-radius: 10px;
+  background-color: lightgrey;
+  height: 50px;
+  width: 500px;
+  text-align: center;
+  color: var(--primary-text-color);
+  border-color: transparent;
+  margin: 0 auto;
+  line-height: 50px;
   border-color: transparent;
 }
 
@@ -125,21 +162,50 @@ section {
 }
 
 .recipe-submit {
+  display: block;
   background-color: var(--link-color);
   border-color: transparent;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 36px;
   color: var(--primary-text-color);
 }
 
-.card-header {
-  background-color: var(--primary-text-color);
+.recipe-submit:hover {
+  background-color: var(--button-hover-color);
+  color: var(--primary-text-color);
+  border-color: var(--choice-button-color);
+}
+
+.recipe-image {
+height: 300px;
+}
+
+.recipe-text {
+  height: 250px;
+  font-size: 16px;
+  line-height: 2;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-footer {
+  font-size: 16px;
 }
 
 /* footer styles */
-.text-center {
-  color: var(--nav-text-color);
-}
-
 footer {
   background-color: var(--primary-text-color);
   color: var(--base-color);
+  font-size: 20px;
+}
+
+.nav li a,
+.nav li a:visited {
+  color: var(--base-color);
+}
+
+.nav li a:active,
+.nav li a:hover {
+  color: var(--button-hover-color);
 }
