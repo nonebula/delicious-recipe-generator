@@ -464,3 +464,69 @@
 //   } 
 
 //   const query = `${userChoices.proteins}, ${userChoices.carbohydrates}, ${userChoices.vegetables1}, ${userChoices.vegetables2}`.trim();
+
+//     const userChoices = JSON.parse(localStorage.getItem("userChoices") || '{}');
+//     if (!userChoices || Object.keys(userChoices).length === 0) {
+//         console.error("No user choices found.");
+//         return;
+//     }
+//     // const query = Object.values(userChoices).filter(Boolean).join(", ");
+//     var query = [userChoices.proteins, userChoices.carbohydrates, userChoices.vegetables1, userChoices.vegetables2].filter(Boolean).join(" ");
+//     fetchRecipes(encodeURIComponent(query));
+// });
+
+// (function(response){
+//     if(!response.ok) {
+//         throw new Error("Network response not ok.");
+//     }
+//     return response.json();
+// })
+
+//     .then(function(data){
+//         displayRecipes(data);
+//      })
+//      .catch(function(error){
+//         console.error("Error fetching recipes:", error);
+//      });
+//     }
+
+//     recipes.forEach(function(recipe) {
+//         const recipeElement = document.createElement("div");
+//         recipeElement.className = "card text-center result-card";
+
+//         recipeElement.innerHTML = `
+//         <div class="card-body result-card-body">
+//             <h5 class="card-title result-heading">${recipe.title}</h5>
+//             <p class="card-text result-ingredients">${recipe.ingredients}</p>
+//             <p class="card-text result-instructions">${recipe.instructions}</p>
+//             <p class="card-text result-servings"${recipe.servings}.</p>
+//             <a href="#" class="btn btn-primary">Show Nutritional Values</a>
+//       </div>
+//         `;
+//         container.appendChild(recipeElement);
+//     })
+// }
+
+// function displayError(error) {
+//     const container = document.getElementById("recipe-container");
+//     container.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
+// }
+
+
+    // const fetchButton = document.querySelector("#js-fetch-recipes");
+
+
+    //   if (fetchButton && recipeResults) {
+    //     fetchButton.addEventListener("click", function () {
+    //       const proteinChoice = document.getElementById("Protein-choices").value;
+    //       const carbChoice = document.getElementById("Carbohydrates-choices").value;
+    //       const veg1Choice = document.getElementById("Vegetable1-choices").value;
+    //       const veg2Choice = document.getElementById("Vegetable2-choices").value;
+    
+    //       const query = [proteinChoice, carbChoice, veg1Choice, veg2Choice]
+    //         .filter(Boolean)
+    //         .join(", ");
+    //       fetchRecipes(query, recipeResults);
+    //     }); 
+    //     }
+    // });

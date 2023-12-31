@@ -119,12 +119,10 @@ document.addEventListener("DOMContentLoaded", function () {
     populateDropdown("Carbohydrates-choices", carbohydrates);
     populateDropdown("Vegetable1-choices", vegetables1);
     populateDropdown("Vegetable2-choices", vegetables2);
-    
-    console.log(document.getElementById("Protein-choices"));
 
   var saveButton = document.getElementById("js-save-button");
   if (saveButton) {
-    saveButton.addEventListener("click", function (){
+    saveButton.addEventListener("click", function () {
       var selections = {
         proteins: document.getElementById("Protein-choices").value,
         carbohydrates: document.getElementById("Carbohydrates-choices").value,
@@ -139,6 +137,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function populateDropdown(selectElementId, items) {
   var selectElement = document.getElementById(selectElementId);
+  if (!selectElement) {
+    console.error(`dropdown element not found: ${selectElementId}`);
+    return;
+  }
   items.forEach(function(item) {
     var option = document.createElement("option");
     option.value = item;
