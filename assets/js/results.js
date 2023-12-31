@@ -1,125 +1,66 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const resultSection = document.querySelector("#js-search-results");
+    const userChoices = JSON.parse(localStorage.getItem("userChoices") || '{}');
+    if (!userChoices || Object.keys(userChoices).length === 0) {
+        console.error("No user choices found."); 
+        return; 
+    }
+    // const query = Object.values(userChoices).filter(Boolean).join(", ");
+    var query = [userChoices.proteins, userChoices.carbohydrates, userChoices.vegetables1, userChoices.vegetables2].filter(Boolean).join(" ");
+    fetchRecipes(encodeURIComponent(query)); 
+}); 
 
-  resultSection.textContent = "";
+function fetchRecipes(query) {
+    const url = `https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=${query}`;
+    const options = {
+        method: "GET",
+        headers: {
+            'X-RapidAPI-Key': 'afe98ac037msh3ce3820dfc89dc5p153212jsn68ab7789434e',
+            'X-RapidAPI-Host': 'recipe-by-api-ninjas.p.rapidapi.com'
+        }
+    }; 
 
-  const userChoices = localStorage.getItem("userChoices");
+    fetch(url, options)
+    .then(function(response){
+        if(!response.ok) {
+            throw new Error("Network response not ok.");
+        }
+        return response.json();
+    })
+    .then(function(data){
+        displayRecipes(data);
+     })
+     .catch(function(error){
+        console.error("Error fetching recipes:", error);
+     });
+    } 
 
-  //add logic to fetch & display
-  
+function displayRecipes(recipes) {
+    const container = document.getElementById("recipe-container"); 
+    container.innerHTML = "";
 
-  //adding array for each data strand
-  const recipeData = [
-      //1
-      {
-          title: "userChoices.title",
-          ingredients: "userChoices.ingredients",
-          instructions: "userChoices.instructions",
-          servings: "userChoices.servings",
-      },
-      //2
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //3
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //4
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //5
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //6
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //7
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //8
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //9
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //10
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-  ]
-  recipeData.forEach(recipe => {
-      const resultCard = document.createElement("div");
-      resultCard.className = "card text-center result-card"
+    if (recipes.length === 0) {
+        container.innerHTML = "<p> No recipes found based on your selections.</p>";
+        return; 
+    }
 
-      const resultCardBody = document.createElement("div");
-      resultCardBody.className = "card-body result-card-body";
+    recipes.forEach(function(recipe) {
+        const recipeElement = document.createElement("div");
+        recipeElement.className = "card text-center result-card"; 
 
-      const titleElement = document.createElement("h5");
-      titleElement.className = "card-title result-heading";
-      titleElement.textContent = recipe.title;
-      
-      const ingredientsElement = document.createElement("p");
-      ingredientsElement.className = "card-title result-ingredients";
-      ingredientsElement.textContent = recipe.ingredients;
-      
-      const instructionsElement = document.createElement("p");
-      instructionsElement.className = "card-title result-instructions";
-      instructionsElement.textContent = recipe.instructions;
-      
-      const servingsElement = document.createElement("p");
-      servingsElement.className = "card-title result-servings";
-      servingsElement.textContent = recipe.servings;
-      
-      const showNutritionalButton = document.createElement("a");
-      showNutritionalButton.href = "#";
-      showNutritionalButton.className = "card-title btn btn-primary";
-      showNutritionalButton.textContent = "Show Nutritional Values";
-      
-//appending results
+        recipeElement.innerHTML = `
+        <div class="card-body result-card-body">
+            <h5 class="card-title result-heading">${recipe.title}</h5>
+            <p class="card-text result-ingredients">${recipe.ingredients}</p>
+            <p class="card-text result-instructions">${recipe.instructions}</p>
+            <p class="card-text result-servings"${recipe.servings}.</p>
+            <a href="#" class="btn btn-primary">Show Nutritional Values</a>
+      </div>
+        `; 
+        container.appendChild(recipeElement); 
+    })
+}
 
-      resultCardBody.appendChild(titleElement);
-      resultCardBody.appendChild(ingredientsElement);
-      resultCardBody.appendChild(instructionsElement);
-      resultCardBody.appendChild(servingsElement);
-      resultCardBody.appendChild(showNutritionalButton);
-
-      resultCard.appendChild(resultCardBody);
-
-      resultSection.appendChild(resultCard);
-
-  })
-});
+function displayError(error) {
+    const container = document.getElementById("recipe-container");
+    container.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
+}
