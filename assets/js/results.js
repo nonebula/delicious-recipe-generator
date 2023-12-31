@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const query = [userChoices.proteins, userChoices.carbohydrates, userChoices.vegetables1, userChoices.vegetables2]
             .filter(Boolean)
-            .join(", ");
+            .join("&");
 
     const recipeResultsContainer = document.getElementById("recipe-container");
 

@@ -35,23 +35,48 @@ var carbohydrates = [
   "Potatoes",
   "Sweet Potatoes",
   "Rice",
+  "Quinoa",
   "Oats",
+  "Barley",
+  "Buckwheat",
   "Noodles",
   "Spaghetti",
-  "Noodles",
+  "Glass Noodles",
+  "Linguine",
+  "Couscous",
   "Pasta",
   "Bread",
+  "Butternut Squash",
+  "Pumpkin",
 ];
 
 var vegetables1 = [
   "",
-  "Green peppers", 
-  "Celery",
+  "Lentils",
+  "Chickpeas",
+  "Black Beans",
+  "Kidney Beans",
+  "Soybeans",
+  "Edamame",
+  "Quinoa",
+  "Spinach",
+  "Broccoli",
+  "Kale",
+  "Brussels Sprouts",
+  "Peas",
+  "Artichokes",
+  "Asparagus",
+  "Cauliflower",
   "Mushrooms",
-  "Onions",
-  "Scallions", 
-
-
+  "Avocado",
+  "Sweet Potatoes",
+  "Cabbage",
+  "Cucumber",
+  "Bell Peppers",
+  "Eggplant",
+  "Zucchini",
+  "Tomatoes",
+  "Carrots",
 ];
 
 var vegetables2 = [
@@ -95,6 +120,19 @@ document.addEventListener("DOMContentLoaded", function () {
     populateDropdown("Vegetable1-choices", vegetables1);
     populateDropdown("Vegetable2-choices", vegetables2);
 
+const saveButton = document.getElementById("js-save-button");
+if (saveButton) {
+  saveButton.addEventListener("click", function (){
+    const selections = {
+      proteins: document.getElementById("Protein-choices").value, 
+      carbohydrates: document.getElementById("Carbohydrates-choices").value, 
+      vegetables1: document.getElementById("Vegetable1-choices").value, 
+      vegetables2: document.getElementById("Vegetable2-choices").value, 
+    };
+    localStorage.setItem("userChoices", JSON.stringify(selections));
+    window.location.href = "results.html";
+  });
+} 
 const fetchButton = document.querySelector("#js-fetch-recipes");
 const recipeResults = document.querySelector("#js-recipe-section"); 
 
