@@ -73,7 +73,7 @@ recipes.forEach((recipe) => {
   servingsP.className = "card-text result-servings";
 
   titleH5.textContent = recipe.title;
-  ingredientsP.textContent = `Ingredients: ${recipe.ingredients}`;
+  ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(/\|/g, ', ')}`;
   instructionsP.textContent = `Instructions: ${recipe.instructions}`;
   servingsP.textContent = `Servings: ${recipe.servings}`;
 

@@ -530,3 +530,18 @@
     //     }); 
     //     }
     // });
+
+    //   var saveButton = document.getElementById("js-save-button");
+//   if (saveButton) {
+//     saveButton.addEventListener("click", function () {
+//       var selections = {
+//         proteins: document.getElementById("Protein-choices").value,
+//         carbohydrates: document.getElementById("Carbohydrates-choices").value,
+//         vegetables1: document.getElementById("Vegetable1-choices").value,
+//         vegetables2: document.getElementById("Vegetable2-choices").value,
+//       };
+//       localStorage.setItem("userChoices", JSON.stringify(selections));
+//       window.location.href = "results.html";
+//       });
+//     } 
+// }); 
