@@ -75,12 +75,75 @@ function fetchRecipes(query, displayElement) {
       instructionsP.textContent = `Instructions: ${recipe.instructions}`;
       servingsP.textContent = `Servings: ${recipe.servings}`;
 
+      // nutrition button dynamic creation:
+      const nutritionButton = document.createElement("button");
+      nutritionButton.className = "btn btn-info";
+      nutritionButton.textContent = "Nutritional Information";
+      nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
+      nutritionButton.addEventListener("click", function () {
+        const ingredients = this.getAttribute("data-ingredients");
+        fetchAndDisplayNutrition(ingredients); 
+      });
+
+      // appending card
       cardBodyDiv.appendChild(titleH5);
       cardBodyDiv.appendChild(ingredientsP);
       cardBodyDiv.appendChild(instructionsP);
       cardBodyDiv.appendChild(servingsP);
+      cardBodyDiv.appendChild(nutritionButton);
       cardDiv.appendChild(cardBodyDiv);
       container.appendChild(cardDiv);
     });
   }
+}
+
+// nutrition API call and functions
+
+
+function fetchAndDisplayNutrition(ingredients) {
+  const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredients}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "99088a17fdmsh5b87115e6ccddc4p1da664jsnac40653791f8",
+      "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
+    },
+  };
+
+  fetch(url, options)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Response not ok.");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      displayNutritionData(data);
+    })
+    .catch((error) => {
+      console.error("Error fetching nutrition data:", error);
+    });
+}
+
+function displayNutritionData(data) {
+  const nutritionContainer = document.getElementById("nutrition-container");
+  nutritionContainer.innerHTML = "";
+
+  data.forEach(nutrition => {
+    let content = ` 
+      <div> 
+        <p>Name: ${nutrition.name}</p>
+        <p>Calories: ${nutrition.calories}</p>
+        <p>Carbohydrates (total): ${nutrition.carbohydrates_total_g}</p>
+        <p>Cholesterol: ${nutrition.cholesterol_mg}</p>
+        <p>Saturarted Fat: ${nutrition.fat_saturated_g}</p>
+        <p>Fat (total): ${nutrition.fat_total_g}</p>
+        <p>Potassium: ${nutrition.potassium_mg}</p>
+        <p>Protein: ${nutrition.protein_g}</p>
+        <p>Sodium: ${nutrition.sodium_mg}</p>
+        <p>Sugar: ${nutrition.sugar_g}</p>
+      </div> 
+      `;
+    nutritionContainer.innerHTML += content;
+  });
 }
