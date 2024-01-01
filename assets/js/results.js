@@ -1,125 +1,86 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const resultSection = document.querySelector("#js-search-results");
+  const userChoices = JSON.parse(localStorage.getItem("userChoices") || "{}");
 
-  resultSection.textContent = "";
+  if (!userChoices || Object.keys(userChoices).length === 0) {
+    console.error("No user choices found.");
+    return;
+  }
 
-  const userChoices = localStorage.getItem("userChoices");
-
-  //add logic to fetch & display
-  
-
-  //adding array for each data strand
-  const recipeData = [
-      //1
-      {
-          title: "userChoices.title",
-          ingredients: "userChoices.ingredients",
-          instructions: "userChoices.instructions",
-          servings: "userChoices.servings",
-      },
-      //2
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //3
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //4
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //5
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //6
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //7
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //8
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //9
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
-      //10
-      {
-          title: "element.title",
-          ingredients: "element.ingredients",
-          instructions: "element.instructions",
-          servings: "element.servings",
-      },
+  const query = [
+    userChoices.proteins,
+    userChoices.carbohydrates,
+    userChoices.vegetables1,
+    userChoices.vegetables2,
   ]
-  recipeData.forEach(recipe => {
-      const resultCard = document.createElement("div");
-      resultCard.className = "card text-center result-card"
+    .filter(Boolean)
+    .join("&");
 
-      const resultCardBody = document.createElement("div");
-      resultCardBody.className = "card-body result-card-body";
+  const recipeResultsContainer = document.getElementById("recipe-container");
 
-      const titleElement = document.createElement("h5");
-      titleElement.className = "card-title result-heading";
-      titleElement.textContent = recipe.title;
-      
-      const ingredientsElement = document.createElement("p");
-      ingredientsElement.className = "card-title result-ingredients";
-      ingredientsElement.textContent = recipe.ingredients;
-      
-      const instructionsElement = document.createElement("p");
-      instructionsElement.className = "card-title result-instructions";
-      instructionsElement.textContent = recipe.instructions;
-      
-      const servingsElement = document.createElement("p");
-      servingsElement.className = "card-title result-servings";
-      servingsElement.textContent = recipe.servings;
-      
-      const showNutritionalButton = document.createElement("a");
-      showNutritionalButton.href = "#";
-      showNutritionalButton.className = "card-title btn btn-primary";
-      showNutritionalButton.textContent = "Show Nutritional Values";
-      
-//appending results
-
-      resultCardBody.appendChild(titleElement);
-      resultCardBody.appendChild(ingredientsElement);
-      resultCardBody.appendChild(instructionsElement);
-      resultCardBody.appendChild(servingsElement);
-      resultCardBody.appendChild(showNutritionalButton);
-
-      resultCard.appendChild(resultCardBody);
-
-      resultSection.appendChild(resultCard);
-
-  })
+  if (recipeResultsContainer) {
+    fetchRecipes(query, recipeResultsContainer);
+  } else {
+    console.error("Recipe results container not found.");
+  }
 });
+
+function fetchRecipes(query, displayElement) {
+  const url = `https://recipe-by-api-ninjas.p.rapidapi.com/v1/recipe?query=${query}`;
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "afe98ac037msh3ce3820dfc89dc5p153212jsn68ab7789434e",
+      "X-RapidAPI-Host": "recipe-by-api-ninjas.p.rapidapi.com",
+    },
+  };
+
+  fetch(url, options)
+    .then((response) => response.json())
+    .then((data) => {
+      displayRecipes(data, displayElement);
+    })
+    .catch((error) => {
+      console.error("Error fetching recipes: ", error);
+      displayElement.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
+    });
+
+  function displayRecipes(recipes, container) {
+    container.innerHTML = "";
+    if (recipes.length === 0) {
+      container.innerHTML =
+        "<p> No recipes found based on your selections.</p>";
+      return;
+    }
+
+    recipes.forEach((recipe) => {
+      const cardDiv = document.createElement("div");
+      const cardBodyDiv = document.createElement("div");
+      const titleH5 = document.createElement("h5");
+      const ingredientsP = document.createElement("p");
+      const instructionsP = document.createElement("p");
+      const servingsP = document.createElement("p");
+
+      cardDiv.className = "card text-center result-card";
+      cardBodyDiv.className = "card-body result-card-body";
+      titleH5.className = "card-title result-heading";
+      ingredientsP.className = "card-text result-ingredients";
+      instructionsP.className = "card-text result-instructions";
+      servingsP.className = "card-text result-servings";
+
+      titleH5.textContent = recipe.title;
+      ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(
+        /\|/g,
+        ", "
+      )}`;
+      instructionsP.textContent = `Instructions: ${recipe.instructions}`;
+      servingsP.textContent = `Servings: ${recipe.servings}`;
+
+      cardBodyDiv.appendChild(titleH5);
+      cardBodyDiv.appendChild(ingredientsP);
+      cardBodyDiv.appendChild(instructionsP);
+      cardBodyDiv.appendChild(servingsP);
+      cardDiv.appendChild(cardBodyDiv);
+      container.appendChild(cardDiv);
+    });
+  }
+}
