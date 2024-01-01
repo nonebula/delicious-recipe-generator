@@ -75,12 +75,25 @@ function fetchRecipes(query, displayElement) {
       instructionsP.textContent = `Instructions: ${recipe.instructions}`;
       servingsP.textContent = `Servings: ${recipe.servings}`;
 
+// nutrition button dynamic creation: 
+const nutritionButton = document.createElement("button");
+nutritionButton.className = "btn btn-info"; 
+nutritionButton.textContent = "Nutritional Information";
+nutritionButton.setAttribute("data-ingredients", recipe.ingredients); 
+nutritionButton.addEventListener("click", function() {
+  const ingredients = this.getAttribute("data-ingredients"); 
+  
+})
+
+// appending card
       cardBodyDiv.appendChild(titleH5);
       cardBodyDiv.appendChild(ingredientsP);
       cardBodyDiv.appendChild(instructionsP);
       cardBodyDiv.appendChild(servingsP);
       cardDiv.appendChild(cardBodyDiv);
       container.appendChild(cardDiv);
+      cardBodyDiv.appendChild(nutritionButton); 
+
     });
   }
 }

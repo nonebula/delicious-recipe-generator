@@ -1,6 +1,31 @@
+document.addEventListener("DOMContentLoaded", function () {
+  function fetchAndDisplayNutrition(ingredients) {
+    const url =
+      "https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=1lb%20brisket%20with%20fries";
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "99088a17fdmsh5b87115e6ccddc4p1da664jsnac40653791f8",
+        "X-RapidAPI-Host": "nutrition-by-api-ninjas.p.rapidapi.com",
+      }
+    };
+  }
+});
 
+    fetch(url, options)
+            .then(response => response.json()) 
+            .then(data => {
+                displayNutritionData(data); 
+            })
+            .catch(error => {
+                console.error("Error fetching nutrition data:", error); 
+            }); 
+    
+function displayNutritionData(data) {
 
+}
 
+// on click of button function? 
 
 // previous code written to deal with Nutrition API
 
@@ -9,17 +34,7 @@
 // if (nutritionButton && nutritionResults) {
 
 //     nutritionButton.addEventListener('click', function () {
-//         const url = 'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=1lb%20brisket%20with%20fries';
-//         const options = {
-//             method: 'GET',
-//             headers: {
-//                 'X-RapidAPI-Key': '99088a17fdmsh5b87115e6ccddc4p1da664jsnac40653791f8',
-//                 'X-RapidAPI-Host': 'nutrition-by-api-ninjas.p.rapidapi.com'
-//             }
-//         }
 
-//         fetch(url, options)
-//             .then(response => {
 //                 if (!response.ok) {
 //                     throw new Error('Response was not ok');
 //                 }
@@ -64,5 +79,5 @@
 //         console.log(option.innerHTML);
 //         customerInput += option.innerHTML + ' ';
 //     })
-// }); 
+// });
 // });
