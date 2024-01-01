@@ -68,13 +68,14 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 /* Nav bar search button */
 .recipe-search-btn {
   background-color: var(--link-color);
-  color: var(--base-color);
+  color: var(--primary-site-color);
   border-color: var(--link-color);
   border-radius: 10px;
 }
 
 .recipe-search-btn:hover {
   background-color: var(--button-hover-color);
+  color: var(--primary-site-color);
 }
 
 /* jumbrotron styling */
@@ -108,9 +109,9 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
   color: var(--primary-text-color);
 }
 .recipe-jumbo-btn {
-  background-color: var(--primary-site-color);
-  color: var(--base-color);
-  border: solid black;
+  background-color: var(--link-color);
+  color: var(--primary-site-color);
+  border: transparent;
 }
 
 .recipe-jumbo-btn:hover {
@@ -218,7 +219,7 @@ section {
 /* footer styles */
 footer {
   background-color: var(--primary-text-color);
-  color: var(--base-color);
+  color: var(--secondary-text-color);
   font-size: 20px;
 }
 
@@ -231,3 +232,48 @@ footer {
 .nav li a:hover {
   color: var(--button-hover-color);
 }
+
+/* css styling for results page */
+
+/* background color for recipe */
+.result-card-body {
+  background-color: var(--primary-site-color);
+  color: var(--base-color);
+}
+
+/* recipe heading text */
+.result-heading {
+  color: var(--base-color);
+}
+
+/* nutrition button background color */
+.btn-info {
+  background-color: var(--secondary-site-color);
+  border-color: transparent;
+}
+ 
+/* nutrition button hover color */
+.btn-info:hover {
+  background-color: var(--button-hover-color);
+  color: var(--choice-button-color);
+  border-color: var(--primary-site-color);
+}
+
+/* nutrition display styling */
+#nutrition-container {
+  justify-content: center;
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  display: block;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+/*most popular conatiner styling */
+.most-popular-recipe {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  font-size: 36px;
+
+}
+

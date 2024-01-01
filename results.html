@@ -18,10 +18,57 @@
     <title>Delicious Recipe Generator - Results</title>
   </head>
   <body>
-    
+    <header>
+      <!-- navigation bar-->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid nav-container">
+          <div class="logo">
+            <img src="./assets/images/logo.png" height="50px" width="50px" alt="Logo">
+          </div>
+          <a class="recipe-brand navbar-brand" href="index.html">Delicious Recipe Generator</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse nav-list-items" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="index.html">Get Recipes</a>
+              </li>
+              <li class="nav-item recipe-nav-bar">
+                <a class="recipe-navigation nav-link" href="results.html">My Recipes</a>
+              </li>
+            </ul>
+            <form class="d-flex nav-user-form" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="recipe-search-btn btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</header> 
 <div id="recipe-container"></div>
 
-<div id="nutrition-container" class="btn btn-info"></div>
+<div id="nutrition-container" class="btn btn-info"></div><br><br>
+
+<!--footer-->
+<footer class="py-0 my-0 footer">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item">
+    </li>
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
+    <li class="nav-item"><a href="./results.html" class="nav-link">My Recipes</a></li>
+    <li class="nav-item"><a href="tel:+1234567890" class="nav-link"><i class="fas fa-phone"></i>Contact</a></li>
+    <li class="nav-item"><a href="mailto:contactus@deliciousrecipes.com" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
+    <li class="nav-item"><a href="https://www.facebook.com" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
+    <li class="nav-item"><a href="https://www.instagram.com" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
+    <li class="nav-item"><a href="https://www.twitter.com" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
+  </ul>
+<p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p> 
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script
