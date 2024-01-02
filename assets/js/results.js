@@ -43,6 +43,7 @@ function fetchRecipes(query, displayElement) {
       console.error("Error fetching recipes: ", error);
       displayElement.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
     });
+  }
 
   function displayRecipes(recipes, container) {
     container.innerHTML = "";
@@ -53,39 +54,63 @@ function fetchRecipes(query, displayElement) {
     }
 
     recipes.forEach((recipe) => {
+
+      // recipe wrapper
+      const recipeWrapper = document.createElement("div");
+      recipeWrapper.className = "recipe-wrapper"; 
+
+      // card div
       const cardDiv = document.createElement("div");
-      const cardBodyDiv = document.createElement("div");
-      const titleH5 = document.createElement("h5");
-      const ingredientsP = document.createElement("p");
-      const instructionsP = document.createElement("p");
-      const servingsP = document.createElement("p");
-
       cardDiv.className = "card text-center result-card";
-      cardBodyDiv.className = "card-body result-card-body";
-      titleH5.className = "card-title result-heading";
-      ingredientsP.className = "card-text result-ingredients";
-      instructionsP.className = "card-text result-instructions";
-      servingsP.className = "card-text result-servings";
 
+      // card body div
+      const cardBodyDiv = document.createElement("div");
+      cardBodyDiv.className = "card-body result-card-body";
+
+      // title h5
+      const titleH5 = document.createElement("h5");
+      titleH5.className = "card-title result-heading";
       titleH5.textContent = recipe.title;
+
+      // ingredients
+      const ingredientsP = document.createElement("p");
+      ingredientsP.className = "card-text result-ingredients";
       ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(
         /\|/g,
         ", "
       )}`;
+
+      // instructions 
+      const instructionsP = document.createElement("p");
+      instructionsP.className = "card-text result-instructions";
       instructionsP.textContent = `Instructions: ${recipe.instructions}`;
+
+      // servings 
+      const servingsP = document.createElement("p");
+      servingsP.className = "card-text result-servings";
       servingsP.textContent = `Servings: ${recipe.servings}`;
+
+      // Nutritional Information DIV
+      const nutritionDiv = document.createElement("div");
+      nutritionDiv.className = "nutrition-info hidden";
+      cardBodyDiv.appendChild(nutritionDiv);
 
       // nutrition button dynamic creation:
       const nutritionButton = document.createElement("button");
       nutritionButton.className = "btn btn-info";
       nutritionButton.textContent = "Nutritional Information";
       nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
+      
       nutritionButton.addEventListener("click", function () {
         const ingredients = this.getAttribute("data-ingredients");
-        fetchAndDisplayNutrition(ingredients); 
+        fetchAndDisplayNutrition(ingredients, nutritionDiv); 
+        // to hide nutrition data 
+        nutritionDiv.classList.toggle("hidden"); 
       });
 
       // appending card
+      recipeWrapper.appendChild(cardBodyDiv);
+      recipeWrapper.appendChild(nutritionDiv);
       cardBodyDiv.appendChild(titleH5);
       cardBodyDiv.appendChild(ingredientsP);
       cardBodyDiv.appendChild(instructionsP);
@@ -93,14 +118,14 @@ function fetchRecipes(query, displayElement) {
       cardBodyDiv.appendChild(nutritionButton);
       cardDiv.appendChild(cardBodyDiv);
       container.appendChild(cardDiv);
+      container.appendChild(recipeWrapper); 
     });
   }
-}
 
 // nutrition API call and functions
 
 
-function fetchAndDisplayNutrition(ingredients) {
+function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredients}`;
   const options = {
     method: "GET",
@@ -118,20 +143,21 @@ function fetchAndDisplayNutrition(ingredients) {
       return response.json();
     })
     .then((data) => {
-      displayNutritionData(data);
+      displayNutritionData(data, nutritionDiv);
+      nutritionDiv.classList.remove("hidden"); 
     })
     .catch((error) => {
       console.error("Error fetching nutrition data:", error);
     });
 }
 
-function displayNutritionData(data) {
-  const nutritionContainer = document.getElementById("nutrition-container");
-  nutritionContainer.innerHTML = "";
+function displayNutritionData(data, nutritionDiv) {
+  // const nutritionContainer = document.getElementById("nutrition-container");
+  nutritionDiv.innerHTML = ""; 
 
   data.forEach(nutrition => {
     let content = ` 
-      <div> 
+      <div class="nutrition-item"> 
         <p>Name: ${nutrition.name}</p>
         <p>Calories: ${nutrition.calories}</p>
         <p>Carbohydrates (total): ${nutrition.carbohydrates_total_g}</p>
@@ -144,6 +170,6 @@ function displayNutritionData(data) {
         <p>Sugar: ${nutrition.sugar_g}</p>
       </div> 
       `;
-    nutritionContainer.innerHTML += content;
+    nutritionDiv.innerHTML += content;
   });
 }

@@ -259,14 +259,64 @@ footer {
   border-color: var(--primary-site-color);
 }
 
+/* recipe wrapper  */
+
+.recipe-wrapper {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+
+/* Nutrition display */
+.recipe-wrapper {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px; 
+}
+
+.nutrition-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
 /* nutrition display styling */
-#nutrition-container {
+/* #nutrition-container {
   justify-content: center;
   background-color: var(--primary-site-color);
   color: var(--secondary-text-color);
   display: block;
   margin-left: 4%;
   margin-right: 4%;
+} */
+
+.nutrition-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 100%;
+}
+
+.nutrition-item h4 {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.nutrition-item p {
+  font-size: 0.8rem;
+}
+
+/* to hide nutritional information */ 
+.hidden {
+  display: none; 
 }
 
 /*most popular conatiner styling */
