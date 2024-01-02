@@ -43,6 +43,7 @@ function fetchRecipes(query, displayElement) {
       console.error("Error fetching recipes: ", error);
       displayElement.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
     });
+  }
 
   function displayRecipes(recipes, container) {
     container.innerHTML = "";
@@ -53,30 +54,42 @@ function fetchRecipes(query, displayElement) {
     }
 
     recipes.forEach((recipe) => {
+
+      // recipe wrapper
       const recipeWrapper = document.createElement("div");
-      const cardDiv = document.createElement("div");
-      const cardBodyDiv = document.createElement("div");
-      const titleH5 = document.createElement("h5");
-      const ingredientsP = document.createElement("p");
-      const instructionsP = document.createElement("p");
-      const servingsP = document.createElement("p");
-
       recipeWrapper.className = "recipe-wrapper"; 
-      cardDiv.className = "card text-center result-card";
-      cardBodyDiv.className = "card-body result-card-body";
-      titleH5.className = "card-title result-heading";
-      ingredientsP.className = "card-text result-ingredients";
-      instructionsP.className = "card-text result-instructions";
-      servingsP.className = "card-text result-servings";
 
+      // card div
+      const cardDiv = document.createElement("div");
+      cardDiv.className = "card text-center result-card";
+
+      // card body div
+      const cardBodyDiv = document.createElement("div");
+      cardBodyDiv.className = "card-body result-card-body";
+
+      // title h5
+      const titleH5 = document.createElement("h5");
+      titleH5.className = "card-title result-heading";
       titleH5.textContent = recipe.title;
+
+      // ingredients
+      const ingredientsP = document.createElement("p");
+      ingredientsP.className = "card-text result-ingredients";
       ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(
         /\|/g,
         ", "
       )}`;
+
+      // instructions 
+      const instructionsP = document.createElement("p");
+      instructionsP.className = "card-text result-instructions";
       instructionsP.textContent = `Instructions: ${recipe.instructions}`;
+
+      // servings 
+      const servingsP = document.createElement("p");
+      servingsP.className = "card-text result-servings";
       servingsP.textContent = `Servings: ${recipe.servings}`;
-     
+
       // Nutritional Information DIV
       const nutritionDiv = document.createElement("div");
       nutritionDiv.className = "nutrition-info";
@@ -105,7 +118,6 @@ function fetchRecipes(query, displayElement) {
       container.appendChild(recipeWrapper); 
     });
   }
-}
 
 // nutrition API call and functions
 

@@ -264,13 +264,15 @@ footer {
   background-color: var(--primary-site-color);
   color: var(--secondary-text-color);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: start;
   gap: 10px; 
 }
 
 .nutrition-info {
-  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
 }
 
 /* nutrition display styling */
@@ -281,6 +283,19 @@ footer {
   display: block;
   margin-left: 4%;
   margin-right: 4%;
+}
+
+.nutrition-item {
+  flex-basis: 45%;
+}
+
+.nutrition-item h4 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.nutrition-item p {
+  font-size: 0.8rem;
 }
 
 /*most popular conatiner styling */
