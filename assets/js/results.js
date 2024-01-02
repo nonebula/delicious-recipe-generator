@@ -53,6 +53,7 @@ function fetchRecipes(query, displayElement) {
     }
 
     recipes.forEach((recipe) => {
+      const recipeWrapper = document.createElement("div");
       const cardDiv = document.createElement("div");
       const cardBodyDiv = document.createElement("div");
       const titleH5 = document.createElement("h5");
@@ -60,6 +61,7 @@ function fetchRecipes(query, displayElement) {
       const instructionsP = document.createElement("p");
       const servingsP = document.createElement("p");
 
+      recipeWrapper.className = "recipe-wrapper"; 
       cardDiv.className = "card text-center result-card";
       cardBodyDiv.className = "card-body result-card-body";
       titleH5.className = "card-title result-heading";
@@ -91,6 +93,8 @@ function fetchRecipes(query, displayElement) {
       });
 
       // appending card
+      recipeWrapper.appendChild(cardBodyDiv);
+      recipeWrapper.appendChild(nutritionDiv);
       cardBodyDiv.appendChild(titleH5);
       cardBodyDiv.appendChild(ingredientsP);
       cardBodyDiv.appendChild(instructionsP);
@@ -98,6 +102,7 @@ function fetchRecipes(query, displayElement) {
       cardBodyDiv.appendChild(nutritionButton);
       cardDiv.appendChild(cardBodyDiv);
       container.appendChild(cardDiv);
+      container.appendChild(recipeWrapper); 
     });
   }
 }

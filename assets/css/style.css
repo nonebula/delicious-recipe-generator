@@ -259,6 +259,20 @@ footer {
   border-color: var(--primary-site-color);
 }
 
+/* Nutrition display */
+.recipe-wrapper {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 10px; 
+}
+
+.nutrition-info {
+  flex-basis: 50%;
+}
+
 /* nutrition display styling */
 #nutrition-container {
   justify-content: center;
