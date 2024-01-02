@@ -74,6 +74,11 @@ function fetchRecipes(query, displayElement) {
       )}`;
       instructionsP.textContent = `Instructions: ${recipe.instructions}`;
       servingsP.textContent = `Servings: ${recipe.servings}`;
+     
+      // Nutritional Information DIV
+      const nutritionDiv = document.createElement("div");
+      nutritionDiv.className = "nutrition-info";
+      cardBodyDiv.appendChild(nutritionDiv);
 
       // nutrition button dynamic creation:
       const nutritionButton = document.createElement("button");
@@ -82,7 +87,7 @@ function fetchRecipes(query, displayElement) {
       nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
       nutritionButton.addEventListener("click", function () {
         const ingredients = this.getAttribute("data-ingredients");
-        fetchAndDisplayNutrition(ingredients); 
+        fetchAndDisplayNutrition(ingredients, nutritionDiv); 
       });
 
       // appending card
@@ -100,7 +105,7 @@ function fetchRecipes(query, displayElement) {
 // nutrition API call and functions
 
 
-function fetchAndDisplayNutrition(ingredients) {
+function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredients}`;
   const options = {
     method: "GET",
@@ -118,20 +123,20 @@ function fetchAndDisplayNutrition(ingredients) {
       return response.json();
     })
     .then((data) => {
-      displayNutritionData(data);
+      displayNutritionData(data, nutritionDiv);
     })
     .catch((error) => {
       console.error("Error fetching nutrition data:", error);
     });
 }
 
-function displayNutritionData(data) {
+function displayNutritionData(data, nutritionDiv) {
   const nutritionContainer = document.getElementById("nutrition-container");
-  nutritionContainer.innerHTML = "";
+  nutritionDiv.innerHTML = ""; 
 
   data.forEach(nutrition => {
     let content = ` 
-      <div> 
+      <div class="nutrition-data"> 
         <p>Name: ${nutrition.name}</p>
         <p>Calories: ${nutrition.calories}</p>
         <p>Carbohydrates (total): ${nutrition.carbohydrates_total_g}</p>
@@ -144,6 +149,6 @@ function displayNutritionData(data) {
         <p>Sugar: ${nutrition.sugar_g}</p>
       </div> 
       `;
-    nutritionContainer.innerHTML += content;
+    nutritionDiv.innerHTML += content;
   });
 }
