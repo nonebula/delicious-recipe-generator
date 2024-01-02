@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(cardDiv);
       container.appendChild(recipeWrapper);
     });
-  
+
   }
   
   
