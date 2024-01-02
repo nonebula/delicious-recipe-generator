@@ -148,12 +148,12 @@ function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
 }
 
 function displayNutritionData(data, nutritionDiv) {
-  const nutritionContainer = document.getElementById("nutrition-container");
+  // const nutritionContainer = document.getElementById("nutrition-container");
   nutritionDiv.innerHTML = ""; 
 
   data.forEach(nutrition => {
     let content = ` 
-      <div class="nutrition-data"> 
+      <div class="nutrition-item"> 
         <p>Name: ${nutrition.name}</p>
         <p>Calories: ${nutrition.calories}</p>
         <p>Carbohydrates (total): ${nutrition.carbohydrates_total_g}</p>

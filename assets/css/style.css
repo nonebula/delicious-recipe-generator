@@ -259,6 +259,18 @@ footer {
   border-color: var(--primary-site-color);
 }
 
+/* recipe wrapper  */
+
+.recipe-wrapper {
+  background-color: var(--primary-site-color);
+  color: var(--secondary-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+
+
 /* Nutrition display */
 .recipe-wrapper {
   background-color: var(--primary-site-color);
@@ -276,22 +288,26 @@ footer {
 }
 
 /* nutrition display styling */
-#nutrition-container {
+/* #nutrition-container {
   justify-content: center;
   background-color: var(--primary-site-color);
   color: var(--secondary-text-color);
   display: block;
   margin-left: 4%;
   margin-right: 4%;
-}
+} */
 
 .nutrition-item {
-  flex-basis: 45%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex-basis: 100%;
 }
 
 .nutrition-item h4 {
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .nutrition-item p {
