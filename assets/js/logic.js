@@ -87,7 +87,6 @@ var vegetables2 = [
   "Carrots",
 ];
 
-
 // Sorting arrays alphabetically
 proteins.sort();
 carbohydrates.sort();
@@ -114,6 +113,8 @@ if (saveButton) {
    });
   } 
 });
+
+
 
 function populateDropdown(selectElementId, items) {
   var selectElement = document.getElementById(selectElementId);

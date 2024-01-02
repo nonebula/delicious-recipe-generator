@@ -43,87 +43,113 @@ function fetchRecipes(query, displayElement) {
       console.error("Error fetching recipes: ", error);
       displayElement.innerHTML = `<p>Error fetching recipes: ${error.message}</p>`;
     });
+}
+
+function displayRecipes(recipes, container) {
+  container.innerHTML = "";
+  if (recipes.length === 0) {
+    container.innerHTML = "<p> No recipes found based on your selections.</p>";
+    return;
   }
 
-  function displayRecipes(recipes, container) {
-    container.innerHTML = "";
-    if (recipes.length === 0) {
-      container.innerHTML =
-        "<p> No recipes found based on your selections.</p>";
-      return;
-    }
+  recipes.forEach((recipe) => {
+    // recipe wrapper
+    const recipeWrapper = document.createElement("div");
+    recipeWrapper.className = "recipe-wrapper";
 
-    recipes.forEach((recipe) => {
+    // card div
+    const cardDiv = document.createElement("div");
+    cardDiv.className = "card text-center result-card";
 
-      // recipe wrapper
-      const recipeWrapper = document.createElement("div");
-      recipeWrapper.className = "recipe-wrapper"; 
+    // card body div
+    const cardBodyDiv = document.createElement("div");
+    cardBodyDiv.className = "card-body result-card-body";
 
-      // card div
-      const cardDiv = document.createElement("div");
-      cardDiv.className = "card text-center result-card";
+    // title h5
+    const titleH5 = document.createElement("h5");
+    titleH5.className = "card-title result-heading";
+    titleH5.textContent = recipe.title;
 
-      // card body div
-      const cardBodyDiv = document.createElement("div");
-      cardBodyDiv.className = "card-body result-card-body";
+    // ingredients
+    const ingredientsP = document.createElement("p");
+    ingredientsP.className = "card-text result-ingredients";
+    ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(
+      /\|/g,
+      ", "
+    )}`;
 
-      // title h5
-      const titleH5 = document.createElement("h5");
-      titleH5.className = "card-title result-heading";
-      titleH5.textContent = recipe.title;
+    // instructions
+    const instructionsP = document.createElement("p");
+    instructionsP.className = "card-text result-instructions";
+    instructionsP.textContent = `Instructions: ${recipe.instructions}`;
 
-      // ingredients
-      const ingredientsP = document.createElement("p");
-      ingredientsP.className = "card-text result-ingredients";
-      ingredientsP.textContent = `Ingredients: ${recipe.ingredients.replace(
-        /\|/g,
-        ", "
-      )}`;
+    // servings
+    const servingsP = document.createElement("p");
+    servingsP.className = "card-text result-servings";
+    servingsP.textContent = `Servings: ${recipe.servings}`;
 
-      // instructions 
-      const instructionsP = document.createElement("p");
-      instructionsP.className = "card-text result-instructions";
-      instructionsP.textContent = `Instructions: ${recipe.instructions}`;
+    // Nutritional Information DIV
+    const nutritionDiv = document.createElement("div");
+    nutritionDiv.className = "nutrition-info hidden";
+    cardBodyDiv.appendChild(nutritionDiv);
 
-      // servings 
-      const servingsP = document.createElement("p");
-      servingsP.className = "card-text result-servings";
-      servingsP.textContent = `Servings: ${recipe.servings}`;
+    // nutrition button dynamic creation:
+    const nutritionButton = document.createElement("button");
+    nutritionButton.className = "btn btn-info ";
+    nutritionButton.textContent = "Nutritional Information";
+    nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
 
-      // Nutritional Information DIV
-      const nutritionDiv = document.createElement("div");
-      nutritionDiv.className = "nutrition-info hidden";
-      cardBodyDiv.appendChild(nutritionDiv);
+    // Save Recipe  DIV
+    const saveRecipeDiv = document.createElement("div");
+    saveRecipeDiv.className = "save-recipe";
+    cardBodyDiv.appendChild(saveRecipeDiv);
 
-      // nutrition button dynamic creation:
-      const nutritionButton = document.createElement("button");
-      nutritionButton.className = "btn btn-info";
-      nutritionButton.textContent = "Nutritional Information";
-      nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
-      
-      nutritionButton.addEventListener("click", function () {
-        const ingredients = this.getAttribute("data-ingredients");
-        fetchAndDisplayNutrition(ingredients, nutritionDiv); 
-        // to hide nutrition data 
-        nutritionDiv.classList.toggle("hidden"); 
-      });
+    // nutrition button dynamic creation:
+    const saveRecipeButton = document.createElement("button");
+    saveRecipeButton.className = "btn btn-info js-save-recipe-button";
+    saveRecipeButton.textContent = "Save Recipe";
+    saveRecipeButton.setAttribute("data-Recipe", JSON.stringify(recipe));
 
-      // appending card
-      recipeWrapper.appendChild(cardBodyDiv);
-      recipeWrapper.appendChild(nutritionDiv);
-      cardBodyDiv.appendChild(titleH5);
-      cardBodyDiv.appendChild(ingredientsP);
-      cardBodyDiv.appendChild(instructionsP);
-      cardBodyDiv.appendChild(servingsP);
-      cardBodyDiv.appendChild(nutritionButton);
-      cardDiv.appendChild(cardBodyDiv);
-      container.appendChild(cardDiv);
-      container.appendChild(recipeWrapper); 
+    nutritionButton.addEventListener("click", function () {
+      const ingredients = this.getAttribute("data-ingredients");
+      fetchAndDisplayNutrition(ingredients, nutritionDiv);
+      // to hide nutrition data
+      nutritionDiv.classList.toggle("hidden");
     });
-  }
+
+    // appending card
+    recipeWrapper.appendChild(cardBodyDiv);
+    recipeWrapper.appendChild(nutritionDiv);
+    cardBodyDiv.appendChild(titleH5);
+    cardBodyDiv.appendChild(ingredientsP);
+    cardBodyDiv.appendChild(instructionsP);
+    cardBodyDiv.appendChild(servingsP);
+    cardBodyDiv.appendChild(nutritionButton);
+    cardBodyDiv.appendChild(saveRecipeButton);
+    cardDiv.appendChild(cardBodyDiv);
+    container.appendChild(cardDiv);
+    container.appendChild(recipeWrapper);
+  });
+
+  let saveRecipeButton = document.querySelectorAll(".js-save-recipe-button");
+  console.log("getting save-recipe-buttons")
+  console.log(saveRecipeButton)
+
+  saveRecipeButton.forEach( (item) => {
+    item.addEventListener("click", function(){
+      console.log(item);
+      console.log(JSON.stringify(item.getAttribute("data-Recipe")))
+
+      let savedRecipe = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
+      savedRecipe.push(item.getAttribute("data-Recipe"));
+      localStorage.setItem("savedRecipes", JSON.stringify(savedRecipe))
+     //window.location.href = "savedRecipes.html";
+   });
+  })
+}
 
 // nutrition API call and functions
-
 
 function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
   const url = `https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=${ingredients}`;
@@ -144,18 +170,20 @@ function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
     })
     .then((data) => {
       displayNutritionData(data, nutritionDiv);
-      nutritionDiv.classList.remove("hidden"); 
+      nutritionDiv.classList.remove("hidden");
     })
     .catch((error) => {
       console.error("Error fetching nutrition data:", error);
     });
+
+
 }
 
 function displayNutritionData(data, nutritionDiv) {
   // const nutritionContainer = document.getElementById("nutrition-container");
-  nutritionDiv.innerHTML = ""; 
+  nutritionDiv.innerHTML = "";
 
-  data.forEach(nutrition => {
+  data.forEach((nutrition) => {
     let content = ` 
       <div class="nutrition-item"> 
         <p>Name: ${nutrition.name}</p>
