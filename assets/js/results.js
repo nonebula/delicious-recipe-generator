@@ -92,7 +92,7 @@ function fetchRecipes(query, displayElement) {
 
       // Nutritional Information DIV
       const nutritionDiv = document.createElement("div");
-      nutritionDiv.className = "nutrition-info";
+      nutritionDiv.className = "nutrition-info hidden";
       cardBodyDiv.appendChild(nutritionDiv);
 
       // nutrition button dynamic creation:
@@ -100,9 +100,12 @@ function fetchRecipes(query, displayElement) {
       nutritionButton.className = "btn btn-info";
       nutritionButton.textContent = "Nutritional Information";
       nutritionButton.setAttribute("data-ingredients", recipe.ingredients);
+      
       nutritionButton.addEventListener("click", function () {
         const ingredients = this.getAttribute("data-ingredients");
         fetchAndDisplayNutrition(ingredients, nutritionDiv); 
+        // to hide nutrition data 
+        nutritionDiv.classList.toggle("hidden"); 
       });
 
       // appending card
@@ -141,6 +144,7 @@ function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
     })
     .then((data) => {
       displayNutritionData(data, nutritionDiv);
+      nutritionDiv.classList.remove("hidden"); 
     })
     .catch((error) => {
       console.error("Error fetching nutrition data:", error);
