@@ -327,3 +327,28 @@ footer {
 
 }
 
+/*media queries for mobile device*/
+
+@media only screen and (max-width: 600px) {
+
+  /* main title size and alignment */
+  
+  .navbar-brand { 
+    text-align:left;
+    font-size: large;
+  }
+
+/* background color for navigation toggler button */
+
+  .navbar-toggler {
+    background-color: var(--secondary-site-color);
+  }
+/* navigation items appear to the right side */
+
+  .nav-list-items {
+   flex-direction:row-reverse;
+   color: var(--primary-text-color);
+  }
+
+
+}
