@@ -113,6 +113,7 @@ function displayRecipes(recipes, container) {
     nutritionButton.addEventListener("click", function () {
       const ingredients = this.getAttribute("data-ingredients");
       fetchAndDisplayNutrition(ingredients, nutritionDiv);
+
       // to hide nutrition data
       nutritionDiv.classList.toggle("hidden");
     });
@@ -143,6 +144,14 @@ function displayRecipes(recipes, container) {
       let savedRecipe = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 
       savedRecipe.push(item.getAttribute("data-Recipe"));
+
+      const htmlModal = document.getElementById("js-save-modal");
+      htmlModal.style.display = "none";
+      //htmlModal.classList.toggle("hidden");
+
+      const modalBSHTML = document.getElementById("staticBackdrop");
+      modalBSHTML.modal('show')
+
       localStorage.setItem("savedRecipes", JSON.stringify(savedRecipe))
      //window.location.href = "savedRecipes.html";
    });
