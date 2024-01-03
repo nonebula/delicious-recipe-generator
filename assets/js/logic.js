@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const saveButton = document.getElementById("js-save-button");
 const mainModal = document.getElementById("saveModal");
+
 if (saveButton) {
   saveButton.addEventListener("click", function () {
     const selections = {
@@ -118,21 +119,20 @@ if (saveButton) {
     document.body.classList.add("modal-open");
   });
 }
-
 const fetchRecipesButton = document.getElementById("js-fetch-recipes");
-  if (fetchRecipesButton) {
-    fetchRecipesButton.addEventListener("click", function () {
-      window.location.href = "results.html";
-    });
-  }
+if (fetchRecipesButton) {
+  fetchRecipesButton.addEventListener("click", function () {
+    window.location.href = "results.html";
+  });
+}
 });
 
 function populateDropdown(selectElementId, items) {
-  var selectElement = document.getElementById(selectElementId);
-  items.forEach(function (item) {
-    var option = document.createElement("option");
-    option.value = item;
-    option.textContent = item;
-    selectElement.appendChild(option);
-  });
+var selectElement = document.getElementById(selectElementId);
+items.forEach(function (item) {
+  var option = document.createElement("option");
+  option.value = item;
+  option.textContent = item;
+  selectElement.appendChild(option);
+});
 }
