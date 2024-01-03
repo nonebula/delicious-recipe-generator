@@ -18,7 +18,8 @@
 }
 
 body {
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 /* Nav bar styling */
@@ -79,7 +80,8 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
 }
 
 /* jumbrotron styling */
-.landing-section, .myhero {
+.landing-section,
+.myhero {
   justify-content: center;
   background-image: url(../images/jumbotron2.jpg);
   height: 800px;
@@ -172,7 +174,7 @@ section {
   border-color: var(--link-color);
 }
 
-.recipe-modal:hover{
+.recipe-modal:hover {
   background-color: var(--link-hover-color);
   border-color: var(--choice-button-color);
   color: var(--primary-text-color);
@@ -251,7 +253,7 @@ footer {
   background-color: var(--secondary-site-color);
   border-color: transparent;
 }
- 
+
 /* nutrition button hover color */
 .btn-info:hover {
   background-color: var(--button-hover-color);
@@ -270,7 +272,6 @@ footer {
   gap: 10px;
 }
 
-
 /* Nutrition display */
 .recipe-wrapper {
   background-color: var(--primary-site-color);
@@ -278,13 +279,13 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .nutrition-info {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; 
+  gap: 20px;
 }
 
 /* nutrition display styling */
@@ -314,41 +315,71 @@ footer {
   font-size: 0.8rem;
 }
 
-/* to hide nutritional information */ 
+/* to hide nutritional information */
 .hidden {
-  display: none; 
+  display: none;
 }
 
-/*most popular conatiner styling */
+/*most popular container styling */
 .most-popular-recipe {
   background-color: var(--primary-site-color);
   color: var(--secondary-text-color);
   font-size: 36px;
-
 }
 
 /*media queries for mobile device*/
 
-@media only screen and (max-width: 600px) {
-
-  /* main title size and alignment */
-  
-  .navbar-brand { 
-    text-align:left;
-    font-size: large;
+@media only screen and (max-width: 768px) {
+  .nav-container {
+    display: flex;
   }
 
-/* background color for navigation toggler button */
+  /* main title size and alignment */
+
+  .navbar-brand {
+    align-items: left;
+    font-size: larger;
+  }
+
+  /* background color for navigation toggler button */
 
   .navbar-toggler {
     background-color: var(--secondary-site-color);
   }
-/* navigation items appear to the right side */
 
-  .nav-list-items {
-   flex-direction:row-reverse;
-   color: var(--primary-text-color);
+  /* hide search bar */
+
+  .form-control {
+    display: none;
   }
 
+  /* hide search button */
 
+  .recipe-search-btn {
+    display: none;
+  }
+
+  /* navbar links styling */
+
+  .recipe-navigation {
+    display: flex;
+    width: 100%;
+    background-color: var(--primary-site-color);
+  }
+
+  /*choose your ingedients styling */
+
+  .choice-header {
+    display: flex;
+    font-size:x-large;
+    justify-content: center;
+  }
+}
+
+/*most popular recipe styling */
+
+.most-popular-recipe {
+  display:flex;
+  font-size:x-large;
+  justify-content: center;
 }
