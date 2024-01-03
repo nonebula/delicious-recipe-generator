@@ -330,6 +330,7 @@ footer {
 /*media queries for mobile device*/
 
 @media only screen and (max-width: 768px) {
+
   .nav-container {
     display: flex;
   }
@@ -372,9 +373,11 @@ footer {
   .choice-header {
     display: flex;
     font-size:x-large;
-    justify-content: center;
+    width:auto;
   }
-}
+
+  /* choices dropdown styling */
+
 
 /*most popular recipe styling */
 
@@ -382,4 +385,85 @@ footer {
   display:flex;
   font-size:x-large;
   justify-content: center;
+}
+
+  /* footer styling */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+  }
+
+}
+
+/* media queries for tablet */
+
+@media only screen and (min-width: 600px) {
+
+
+   /* background color for navigation toggler button */
+
+   .navbar-toggler {
+    background-color: var(--secondary-site-color);
+  }
+
+   /* main title size and alignment */
+
+   .navbar-brand {
+   font-size:x-large;
+   align-items: left;
+  }
+
+    /* navbar links styling */
+
+    .recipe-navigation {
+      display: flex;
+      width: 100%;
+      background-color: var(--primary-site-color);
+    }
+
+    
+  /*choose your ingedients styling */
+
+  .choice-header {
+    display: flex;
+    justify-content: center;
+    font-size:xx-large;
+  }
+
+  /* whats in your fridge styling */
+
+  .card-title {
+    display:flex;
+    justify-content: center;
+
+  }
+
+  .most-popular-recipe {
+    display:flex;
+    font-size: 40px;
+    justify-content: center;
+  }
+
+  /* recipe title styling */ 
+  .card-title {
+    display: flex;
+    flex-direction: row;
+    font-size:x-large;
+  }
+
+  /* recipe info styling */
+  .recipe-text {
+    display: flex;
+    flex-direction:column;
+    font-size: 10px;
+  }
+
+  /* footer styling */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+  }
+
 }
