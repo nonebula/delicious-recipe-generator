@@ -104,7 +104,7 @@ function displayRecipes(recipes, container) {
     saveRecipeDiv.className = "save-recipe";
     cardBodyDiv.appendChild(saveRecipeDiv);
 
-    // nutrition button dynamic creation:
+    // save recipe button dynamic creation:
     const saveRecipeButton = document.createElement("button");
     saveRecipeButton.className = "btn btn-info js-save-recipe-button";
     saveRecipeButton.textContent = "Save Recipe";
@@ -145,6 +145,9 @@ function displayRecipes(recipes, container) {
 
       savedRecipe.push(item.getAttribute("data-Recipe"));
       localStorage.setItem("savedRecipes", JSON.stringify(savedRecipe))
+
+      const saveModal = new bootstrap.Modal("#js-save-modal")
+      saveModal.show()
      //window.location.href = "savedRecipes.html";
    });
   })
@@ -176,8 +179,6 @@ function fetchAndDisplayNutrition(ingredients, nutritionDiv) {
     .catch((error) => {
       console.error("Error fetching nutrition data:", error);
     });
-
-
 }
 
 function displayNutritionData(data, nutritionDiv) {

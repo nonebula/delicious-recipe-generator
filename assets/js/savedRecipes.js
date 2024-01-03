@@ -1,17 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
   let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
 
-  if (savedRecipes === 0) {
-    console.error("No recipes saved");
-    return;
-  }
-
   console.log(savedRecipes)
- 
+
   const recipeResultsContainer = document.getElementById("recipe-container");
 
   displayRecipes(savedRecipes, recipeResultsContainer)
-
 });
 
 
@@ -24,9 +18,9 @@ function displayRecipes(recipes, container) {
 
   recipes.forEach((recipe) => {
 
-      console.log(recipe);
 
       const newRecipe = JSON.parse(recipe);
+
     // recipe wrapper
     const recipeWrapper = document.createElement("div");
     recipeWrapper.className = "recipe-wrapper";
@@ -61,6 +55,12 @@ function displayRecipes(recipes, container) {
     const servingsP = document.createElement("p");
     servingsP.className = "card-text result-servings";
     servingsP.textContent = `Servings: ${newRecipe.servings}`;
+ 
+     // save recipe button dynamic creation:
+     const removeRecipeButton = document.createElement("button");
+     removeRecipeButton.className = "btn btn-info js-remove-recipe-button";
+     removeRecipeButton.textContent = "Remove Recipe";
+     removeRecipeButton.setAttribute("data-Recipe", JSON.stringify(recipe));
 
 
     // appending card
@@ -69,6 +69,7 @@ function displayRecipes(recipes, container) {
     cardBodyDiv.appendChild(ingredientsP);
     cardBodyDiv.appendChild(instructionsP);
     cardBodyDiv.appendChild(servingsP);
+    cardBodyDiv.appendChild(removeRecipeButton)
     cardDiv.appendChild(cardBodyDiv);
     container.appendChild(cardDiv);
     container.appendChild(recipeWrapper);
