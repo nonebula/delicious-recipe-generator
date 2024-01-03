@@ -1,5 +1,6 @@
+let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
+
 document.addEventListener("DOMContentLoaded", function () {
-    let savedRecipes = JSON.parse(localStorage.getItem("savedRecipes")) || [];
   
     if (savedRecipes === 0) {
       console.error("No recipes saved");
@@ -61,6 +62,17 @@ document.addEventListener("DOMContentLoaded", function () {
       const servingsP = document.createElement("p");
       servingsP.className = "card-text result-servings";
       servingsP.textContent = `Servings: ${newRecipe.servings}`;
+
+          // Save Recipe  DIV
+    const removeRecipeDiv = document.createElement("div");
+    removeRecipeDiv.className = "save-recipe";
+    cardBodyDiv.appendChild(removeRecipeDiv);
+
+    // nutrition button dynamic creation:
+    const removeRecipeButton = document.createElement("button");
+    removeRecipeButton.className = "btn btn-info js-save-recipe-button";
+    removeRecipeButton.textContent = "Remove Recipe";
+    removeRecipeButton.getAttribute("data-Recipe");
   
   
       // appending card
@@ -69,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cardBodyDiv.appendChild(ingredientsP);
       cardBodyDiv.appendChild(instructionsP);
       cardBodyDiv.appendChild(servingsP);
+      cardBodyDiv.appendChild(removeRecipeButton);
       cardDiv.appendChild(cardBodyDiv);
       container.appendChild(cardDiv);
       container.appendChild(recipeWrapper);
@@ -76,4 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   }
   
-  
+  function removeRecipe(recipeToRemove){
+    const newSavedRecipes = [];
+    savedRecipes.forEach((recipe)=>{
+      if(recipe.title !== recipeToRemove.title){
+        newSavedRecipes.push(recipe)
+      }
+
+      savedRecipes = newSavedRecipes;
+      localStorage.setItem("savedRecipes", JSON.stringify(savedRecipes));
+    } )
+
+  }
