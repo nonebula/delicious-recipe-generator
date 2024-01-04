@@ -23,8 +23,18 @@ The Delicious Recipe Generator provides a seamless and enjoyable experience for 
 3. Explore Results: Dive into a visually appealing display of recipe cards, each offering a detailed overview of a mouthwatering dish tailored to your chosen ingredients.
 4. Saved Recipes: naviagte to 'My Recipes' to revisit and recreate your favourite recipes.
 5.  Responsive Design: Whether on a desktop or mobile device, the website's responsive design ensures a consistent and enjoyable user experience across various platforms.
-6.  
-![Website Screenshot](./assets/images/screenshot.png)
+
+
+## Website Screenshots
+
+![Website Screenshot](assets/images/Screenshots/footer-navigation-ss.png "Footer") 
+![Website Screenshot](assets/images/Screenshots/jumbo-ss.png "Jumbo") 
+![Website Screenshot](assets/images/Screenshots/ingredients-ss.png "Ingredients") 
+![Website Screenshot](assets/images/Screenshots/modal-ss.png "Modal") 
+![Website Screenshot](assets/images/Screenshots/my-recipes-ss.png "myRecipes") 
+![Website Screenshot](assets/images/Screenshots/popular-recipes-ss.png "popularRecipes") 
+![Website Screenshot](assets/images/Screenshots/results-ss.png "resultRecipes") 
+
 
 ## Credits
 
