@@ -18,7 +18,7 @@
     <title>Delicious Recipe Generator</title>
   </head>
 
-  <body>
+  <body> 
     <header>
       <!-- navigation bar-->
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -91,106 +91,92 @@
     <select name="Vegetable" id="Vegetable2-choices"> 
     </select>
   
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary recipe-submit" id="js-save-button" data-toggle="modal" data-target="#saveModal">
-      Get Recipes
-      </button>
-
-    <!--most popular recipe container-->
-    <div class="most-popular-recipe">
-      Most Popular Recipes!
-    </div>
-    
-    
-<!-- Save Modal -->
-<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="saveModalLabel">Search Saved!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Your search has been saved. Click 'See Results' to load your results or 'Close' to return to the homepage. Happy cooking!
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">See Results</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary recipe-submit" id="js-save-button" data-bs-toggle="modal" data-bs-target="#saveModal">
+    Get Recipes
+  </button>
+  
+  <!-- Save Modal -->
+  <div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="saveModalLabel">Search Saved!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Your search has been saved. Click 'See Results' to load your results or 'Close' to return to the homepage. Happy cooking!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">See Results</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-  </div>
-</div>
-</div>
-</div>
-</div>
+  
 
 
   <div class="card-footer text-body-secondary">
   
   </div>
-</div>
+
 </section>
 
- 
-    <!--cards-->
-    
-    <div class="recipe-result card-group" id="js-recipe-section js-search-results">
-      <div class="card">
+  <!--cards-->
+  
+  <div class="recipe-result card-group" id="js-recipe-section js-search-results">
+    <div class="card">
 
-        <img src="./assets/images/chic biryani.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Biryani">
-        <div class="card-body">
-          <h5 class="card-title">Chicken Biryani</h5>
-          <p class="card-text recipe-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
-        </div>
-      </div>
-      <div class="card" id="recipe">
-
-        <img src="./assets/images/chic fried rice.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Fried Rice">
-        <div class="card-body">
-          <h5 class="card-title">Chicken Fried Rice</h5>
-          <p class="card-text recipe-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
-        </div>
-      </div>
-      <div class="card" id="recipe">
-
-        <img src="./assets/images/chic noodle stirfry.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Noodle Stir Fry">
-        <div class="card-body">
-          <h5 class="card-title">Chicken Noodle Stirfry</h5>
-          <p class="card-text recipe-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.</p>
-          <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
-        </div>
+      <img src="./assets/images/chic biryani.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Biryani">
+      <div class="card-body">
+        <h5 class="card-title">Chicken Biryani</h5>
+        <p class="card-text recipe-text">Biryani is a mixed rice dish that was thought to have originated from Iran before settling in modern India. It is made with rice, some type of meat and spices. To cater to vegetarians, in some cases, it is prepared by substituting vegetables for the meat. Sometimes eggs and/or potatoes are added.</p>
+        <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
       </div>
     </div>
+    <div class="card" id="recipe">
 
-    <footer class="py-0 my-0 footer">
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        <li class="nav-item">
-        </li>
-        <li class="nav-item"><a href="#landing-section" class="nav-link">Home</a></li>
-        <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
-        <li class="nav-item"><a href="./savedRecipes.html" class="nav-link">My Recipes</a></li>
-        <li class="nav-item"><a href="tel:+1234567890" class="nav-link"><i class="fas fa-solid fa-phone"></i>Contact</a></li>
-        <li class="nav-item"><a href="mailto:contactus@deliciousrecipes.com" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
-        <li class="nav-item"><a href="https://www.facebook.com" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
-        <li class="nav-item"><a href="https://www.instagram.com" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
-        <li class="nav-item"><a href="https://www.twitter.com" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
-      </ul>
-    <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p> 
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
+      <img src="./assets/images/chic fried rice.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Fried Rice">
+      <div class="card-body">
+        <h5 class="card-title">Chicken Fried Rice</h5>
+        <p class="card-text recipe-text">Thai fried rice is a variety of fried rice typical of central Thai cuisine. In Thai, khao means "rice" and phat means "of or relating to being stir-fried." This dish differs from Chinese fried rice in that it is prepared with Thai jasmine rice instead of regular long-grain rice.</p>
+        <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
+      </div>
+    </div>
+    <div class="card" id="recipe">
+
+      <img src="./assets/images/chic noodle stirfry.jpg" class="card-img-top recipe-image" alt="image of recipe Chicken Noodle Stir Fry">
+      <div class="card-body">
+        <h5 class="card-title">Chicken Noodle Stirfry</h5>
+        <p class="card-text recipe-text">A delicious chicken noodle stir fry for me, is the meaning of life. Okay, dramatic. But you know what I mean. Quick, easy and most importantly it’s the perfect opportunity to use up some leftover veg knocking about in the fridge. Plus chicken and noodles is just the perfect combo.</p>
+        <p class="card-text"><small class="text-body-secondary recipe-footer"></small></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="py-0 my-0 footer">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item">
+      </li>
+      <li class="nav-item"><a href="#landing-section" class="nav-link">Home</a></li>
+      <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
+      <li class="nav-item"><a href="./savedRecipes.html" class="nav-link">My Recipes</a></li>
+      <li class="nav-item"><a href="tel:+1234567890" class="nav-link"><i class="fas fa-solid fa-phone"></i>Contact</a></li>
+      <li class="nav-item"><a href="mailto:contactus@deliciousrecipes.com" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
+      <li class="nav-item"><a href="https://www.facebook.com" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>
+      <li class="nav-item"><a href="https://www.instagram.com" class="nav-link"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li class="nav-item"><a href="https://www.twitter.com" class="nav-link"><i class="fab fa-twitter"></i>Twitter</a></li>
+    </ul>
+  <p class="text-center text-body-secondary copyright">© 2023 Company, Inc</p> 
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
     <script src="./assets/js/logic.js"></script>
     <!-- <script src="./assets/js/results.js"> </script> -->
     <!-- <script src="./assets/js/nutrition.js"></script> -->
