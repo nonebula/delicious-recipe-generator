@@ -119,6 +119,7 @@ if (saveButton) {
     document.body.classList.add("modal-open");
   });
 }
+
 const fetchRecipesButton = document.getElementById("js-fetch-recipes");
 if (fetchRecipesButton) {
   fetchRecipesButton.addEventListener("click", function () {
