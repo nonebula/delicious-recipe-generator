@@ -194,6 +194,7 @@ section {
   font-weight: bold;
   font-size: 36px;
   color: var(--primary-text-color);
+  margin-bottom: 10px
 }
 
 .recipe-submit:hover {

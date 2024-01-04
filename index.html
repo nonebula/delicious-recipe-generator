@@ -92,30 +92,32 @@
     </select>
   
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary recipe-submit" id="js-save-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Get Recipes</button><br><br>
+    <button type="button" class="btn btn-primary recipe-submit" id="js-save-button" data-toggle="modal" data-target="#saveModal">
+      Get Recipes
+      </button>
 
     <!--most popular recipe container-->
     <div class="most-popular-recipe">
       Most Popular Recipes!
     </div>
     
+    
 <!-- Save Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="saveModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Search Saved!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="saveModalLabel">Search Saved!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         Your search has been saved. Click 'See Results' to load your results or 'Close' to return to the homepage. Happy cooking!
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="results.html">
-          <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">See Results</button>
-          </a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">See Results</button>
       </div>
     </div>
   </div>
@@ -173,7 +175,7 @@
         </li>
         <li class="nav-item"><a href="#landing-section" class="nav-link">Home</a></li>
         <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
-        <li class="nav-item"><a href="./results.html" class="nav-link">My Recipes</a></li>
+        <li class="nav-item"><a href="./savedRecipes.html" class="nav-link">My Recipes</a></li>
         <li class="nav-item"><a href="tel:+1234567890" class="nav-link"><i class="fas fa-solid fa-phone"></i>Contact</a></li>
         <li class="nav-item"><a href="mailto:contactus@deliciousrecipes.com" class="nav-link"><i class="fas fa-envelope"></i>Email</a></li>
         <li class="nav-item"><a href="https://www.facebook.com" class="nav-link"><i class="fab fa-facebook"></i>Facebook</a></li>

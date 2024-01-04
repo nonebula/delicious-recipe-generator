@@ -48,26 +48,20 @@
             class="collapse navbar-collapse nav-list-items"
             id="navbarSupportedContent"
           >
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item recipe-nav-bar">
-                <a class="recipe-navigation nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item recipe-nav-bar">
-                <a class="recipe-navigation nav-link" href="index.html"
-                  >Get Recipes</a
-                >
-              </li>
-              <li class="nav-item recipe-nav-bar">
-                <a class="recipe-navigation nav-link" href="savedRecipes.html"
-                  >My Recipes</a
-                >
-              </li>
-              <li class="nav-item recipe-nav-bar">
-                <a class="recipe-navigation nav-link" href="results.html"
-                  >See Last Results</a
-                >
-              </li>
-            </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item recipe-nav-bar">
+              <a class="recipe-navigation nav-link" href="index.html#landing-section">Home</a>
+            </li>
+            <li class="nav-item recipe-nav-bar">
+              <a class="recipe-navigation nav-link" href="index.html#selection-section">Get Recipes</a>
+            </li>
+            <li class="nav-item recipe-nav-bar">
+              <a class="recipe-navigation nav-link" href="savedRecipes.html">My Recipes</a>
+            </li>
+            <li class="nav-item recipe-nav-bar">
+              <a class="recipe-navigation nav-link" href="results.html">See Last Results</a>
+            </li>
+          </ul>
             <form class="d-flex nav-user-form" role="search">
               <input
                 class="form-control me-2"
@@ -88,40 +82,31 @@
     </header>
     <div id="recipe-container"></div>
 
-    <div id="nutrition-container" class="btn btn-info"></div>
+    <div id="nutrition-container" ></div>
+
     <br /><br />
 
-      <!-- The Modal -->
-      <div id="js-save-modal" class="modal hidden">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p> Recipe has been saved!</p>
-        </div>
-      </div>
-
-
       <!-- Save Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="js-save-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Search Saved!</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Recipe Saved!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Your search has been saved. Click 'See Results' to load your results or 'Close' to return to the homepage. Happy cooking!
+        Your recipe has been saved. Click 'My-Recipes' to see all your recipes. Happy cooking!
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a href="results.html">
-          <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">See Results</button>
+        <a href="savedRecipes.html">
+          <button type="button" class="btn btn-primary recipe-modal" id="js-fetch-recipes">My Recipes</button>
           </a>
       </div>
     </div>
   </div>
+</div>
 
-  
 
     <!--footer-->
     <footer class="py-0 my-0 footer">
@@ -130,7 +115,7 @@
         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
         <!-- <li class="nav-item"><a href="#skills" class="nav-link">Trending</a></li> -->
         <li class="nav-item">
-          <a href="./results.html" class="nav-link">My Recipes</a>
+          <a href="./savedRecipes.html" class="nav-link">My Recipes</a>
         </li>
         <li class="nav-item">
           <a href="tel:+1234567890" class="nav-link"
