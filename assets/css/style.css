@@ -96,7 +96,6 @@ body {
 }
 
 .recipe-jumbotron {
-  margin-left: 380px;
   width: 300px;
   align-items: center;
   background-color: transparent;
@@ -104,7 +103,6 @@ body {
 
 /* Jumbotron body content */
 .display-5 {
-  margin-top: 150px; 
   color: var(--primary-site-color);
   font-size: 80px;
 }
@@ -377,11 +375,7 @@ footer {
     width: 100%;
     background-color: var(--primary-site-color);
   }
- /* jumbotron text styling */
-
- .recipe-jumbotron {
-  margin-left: 10px;
-}
+  
   /*choose your ingedients styling */
 
   .choice-header {
