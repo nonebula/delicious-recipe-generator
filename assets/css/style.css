@@ -377,7 +377,11 @@ footer {
     width: 100%;
     background-color: var(--primary-site-color);
   }
+ /* jumbotron text styling */
 
+ .recipe-jumbotron {
+  margin-left: 10px;
+}
   /*choose your ingedients styling */
 
   .choice-header {
